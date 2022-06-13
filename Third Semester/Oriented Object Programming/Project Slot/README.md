@@ -14,19 +14,27 @@
 #### There are 5 possibles ways to win
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/6312342/173397469-337a0657-9cfd-4bd3-83d2-322bcf4010f5.png" alt="Awards" height="300px">
+  <img src="https://user-images.githubusercontent.com/6312342/173405073-cb46149c-2b38-4371-9989-2af5f15b8af6.png" alt="Awards" height="300px">
 </p>
 
 #### But also, the 5 ways could happen on the same time
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/6312342/173397492-1529fb38-ae7c-4cf9-8496-7c8d504afe42.png" alt="Combinations" width="800px">
+  <img src="https://user-images.githubusercontent.com/6312342/173405252-50dd5e99-2ca4-4743-bc56-7aa0b15119e7.png" alt="Combinations" width="800px">
 </p>
 
 ## This is the betting table when you bet 5 dollars
 <p align="center">
   <img src="https://user-images.githubusercontent.com/6312342/173397528-3ab9e12b-f3c7-474f-9d8c-02591fd91424.png" alt="Betting Table" height="500px">
 </p>
+## Probability to get an object
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/6312342/173405343-d768af9d-8595-4db3-bd67-af11db284d87.png" alt="Betting Table" height="500px">
+</p>
 
+## Results
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/6312342/173405491-becb1453-7066-42b8-95d2-967e8020b95f.png" alt="Betting Table" height="500px">
+</p>
 
 #### For the best we use the rules of 3
 
