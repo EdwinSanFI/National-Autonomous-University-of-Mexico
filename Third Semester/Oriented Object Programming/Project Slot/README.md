@@ -1,10 +1,11 @@
-# THE PROJECT IS ON MAINTENANCE AND WILL BE UPDATED SOON
+# SLOT using OOP on JAVA
 
 ![Slot](https://user-images.githubusercontent.com/6312342/170311333-cc499e49-d6ae-441f-8fc9-b997a683968c.png)
 
-
-# SLOT using OOP on JAVA
-##
+## What does the program use?
+#### Inherence, Polymorphism, Abstraction, Constructors
+#### Try-Catch, Design Pattern (Prototype)
+#### Import, package
 
 ## How could i win?
 #### There are 5 possibles ways to win
@@ -24,7 +25,3 @@
 #### Only accept bets of 5, 7, 10, 20, 50 dollars
 
 
-## What does the program use?
-#### Inherence, Polymorphism, Abstraction, Constructors
-#### Try-Catch, Design Pattern (Prototype)
-#### Import, package
