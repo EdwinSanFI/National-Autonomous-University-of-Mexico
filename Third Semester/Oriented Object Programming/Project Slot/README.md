@@ -5,10 +5,23 @@
 ![Slot](https://user-images.githubusercontent.com/6312342/170311333-cc499e49-d6ae-441f-8fc9-b997a683968c.png)
 
 ## What does the program use?
-#### Object Oriented Programming on Java
+### Object Oriented Programming on Java
 #### Inherence, Polymorphism, Abstraction, Constructors
 #### Try-Catch, Design Pattern (Prototype)
-#### Import, package
+#### Import, package, files
+
+## How does it work?
+
+
+
+## How to install? and run
+
+
+## How to play
+U need an account
+
+
+
 
 ## How could i win?
 #### There are 5 possibles ways to win
@@ -32,6 +45,13 @@
 </p>
 
 ## Results
+<ul>
+  <li> When you get 3 objets on one line, they are painted on color red</li>
+  <li>When you get 4 objets on one line, they are painted on color yellow</li>
+  <li>When you get 5 objets on one line, they are painted on color blue</li>
+  <li>When you get 3+ objets on the line /\, they are painted on color purple</li>
+  <li>When you get 3+ objets on the line V, they are painted on color green</li>
+</ul>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/6312342/173405491-becb1453-7066-42b8-95d2-967e8020b95f.png" alt="Betting Table" height="500px">
 </p>
