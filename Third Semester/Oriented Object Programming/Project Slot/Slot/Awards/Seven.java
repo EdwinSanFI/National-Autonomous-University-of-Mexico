@@ -5,11 +5,13 @@ public class Seven implements Awards {
     private int fourSevens = 25_000;
     private int threeSevens = 10_000;
     private String name = "Siete";
-    private String color = "\033[37m";
+    private String color = "";
 
+    /** Return the name with spaces for the roulette*/
     public String getName(){
         return "   "+name+"  ";
     }
+    /** Return the name without spaces */
     public String getNameString(){
         return name;
     }
@@ -27,7 +29,7 @@ public class Seven implements Awards {
         return threeSevens;
     }
 
-    /** Agregar metodo que guarde y regrese color */
+    /** Getter and setter for the color of the object */
     public String getColor() {
         return color;
     }
@@ -35,7 +37,7 @@ public class Seven implements Awards {
         this.color = color;
     }
 
-    /** Patron de diseño Prototype */
+    /** Design Pattern PROTOTYPE */
     public Awards clone() {
         return new Seven();
     }

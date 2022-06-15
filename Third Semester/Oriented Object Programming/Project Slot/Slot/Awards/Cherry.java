@@ -1,18 +1,17 @@
 package Slot.Awards;
 
 public class Cherry implements Awards {
-    /** Los 3 premios */
     private int fiveCherrys = 1_500;
     private int fourCherrys = 1_000;
     private int threeCherrys = 600;
-    /** Nombre del objeto */
-    private String name = "Cereza";
-    /** Color para que se pueda imprimir con color */
+    private String name = "Cherry";
     private String color = "";
 
+    /** Return the name with spaces for the roulette*/
     public String getName(){
         return "  "+name+"  ";
     }
+    /** Return the name without spaces */
     public String getNameString(){
         return name;
     }
@@ -30,7 +29,7 @@ public class Cherry implements Awards {
         return threeCherrys;
     }
 
-    /** Agregar metodo que guarde y regrese color */
+    /** Getter and setter for the color of the object */
     public String getColor() {
         return color;
     }
@@ -38,7 +37,7 @@ public class Cherry implements Awards {
         this.color = color;
     }
 
-    /** Patron de diseño Prototype */
+    /** Design Pattern PROTOTYPE */
     public Awards clone() {
         return new Cherry();
     }

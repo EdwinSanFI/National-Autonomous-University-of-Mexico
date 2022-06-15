@@ -1,18 +1,17 @@
 package Slot.Awards;
 
 public class RedDice implements Awards {
-    /** Los 3 premios */
     private int fiveDices = 100_000;
     private int fourDices = 30_000;
     private int threeDices = 15_000;
-    /** Nombre del objeto */
-    private String name = "Dado Rojo";
-    /** Color para que se pueda imprimir con color */
+    private String name = "Red Dice";
     private String color = "";
 
+    /** Return the name with spaces for the roulette*/
     public String getName(){
-        return " "+name;
+        return name;
     }
+    /** Return the name without spaces */
     public String getNameString(){
         return name;
     }
@@ -30,7 +29,7 @@ public class RedDice implements Awards {
         return threeDices;
     }
 
-    /** Agregar metodo que guarde y regrese color */
+    /** Getter and setter for the color of the object */
     public String getColor() {
         return color;
     }
@@ -38,7 +37,7 @@ public class RedDice implements Awards {
         this.color = color;
     }
 
-    /** Patron de diseño Prototype */
+    /** Design Pattern PROTOTYPE */
     public Awards clone() {
         return new RedDice();
     }
