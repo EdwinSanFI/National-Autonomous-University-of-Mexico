@@ -16,15 +16,16 @@ public class Cherry implements Awards {
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
+
+    /** Return the award for 5 cherrys */
     public int getFive(){
         return fiveCherrys;
     }
+    /** Return the award for 4 cherrys */
     public int getFour(){
         return fourCherrys;
     }
+    /** Return the award for 3 cherrys */
     public int getThree(){
         return threeCherrys;
     }

@@ -13,15 +13,16 @@ public class Watermelon implements Awards {
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
+
+    /** Return the award for 5 watermelons */
     public int getFive(){
         return fiveWatermelons;
     }
+    /** Return the award for 4 watermelons */
     public int getFour(){
         return fourWatermelons;
     }
+    /** Return the award for 3 watermelons */
     public int getThree(){
         return threeWatermelons;
     }

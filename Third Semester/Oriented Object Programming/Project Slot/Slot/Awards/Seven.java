@@ -13,16 +13,16 @@ public class Seven implements Awards {
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
 
+    /** Return the award for 5 sevens */
     public int getFive(){
         return fiveSevens;
     }
+    /** Return the award for 4 sevens */
     public int getFour(){
         return fourSevens;
     }
+    /** Return the award for 3 sevens */
     public int getThree(){
         return threeSevens;
     }

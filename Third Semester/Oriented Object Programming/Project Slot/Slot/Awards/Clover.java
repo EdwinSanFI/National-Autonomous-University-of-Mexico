@@ -13,15 +13,16 @@ public class Clover implements Awards {
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
+
+    /** Return the award for 5 clovers */
     public int getFive(){
         return fiveClovers;
     }
+    /** Return the award for 4 clovers */
     public int getFour(){
         return fourClovers;
     }
+    /** Return the award for 3 clovers */
     public int getThree(){
         return threeClovers;
     }
