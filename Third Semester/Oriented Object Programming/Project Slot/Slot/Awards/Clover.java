@@ -7,9 +7,11 @@ public class Clover implements Awards {
     private String name = "Clover";
     private String color = "\033[37m";
 
+    /** Return the name with spaces for the roulette*/
     public String getName(){
         return "  "+name+"  ";
     }
+    /** Return the name without spaces */
     public String getNameString(){
         return name;
     }
@@ -27,7 +29,7 @@ public class Clover implements Awards {
         return threeClovers;
     }
 
-    /** Agregar metodo que guarde y regrese color */
+    /** Getter and setter for the color of the object */
     public String getColor() {
         return color;
     }
@@ -35,7 +37,7 @@ public class Clover implements Awards {
         this.color = color;
     }
 
-    /** Patron de diseño Prototype */
+    /** Design Pattern PROTOTYPE */
     public Awards clone() {
         return new Clover();
     }
