@@ -23,11 +23,19 @@
 - Package
 - Files
 
+# Overview
+
 # How does it work?
 
 
 
 # Get started
+<h3>Clone the respository</h3
+  
+Clone this repository by git and enter it:
+  
+  
+<h3> Compile and Run the project </h3>
 
 
 
