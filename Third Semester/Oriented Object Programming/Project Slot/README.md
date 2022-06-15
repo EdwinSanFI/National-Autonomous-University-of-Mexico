@@ -90,4 +90,6 @@ The minimum balance to enter the account is 20 dollars and the maximum is 1,000,
 
 Only accept bets of 5, 7, 10, 20, 50 dollars
 
+# Contributing
+Contributions are very welcome!
 
