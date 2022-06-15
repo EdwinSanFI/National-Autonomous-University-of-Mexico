@@ -15,17 +15,16 @@ public class Grape implements Awards {
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
 
-    /** Obtiene los 3 posibles premios */
+    /** Return the award for 5 grapes */
     public int getFive(){
         return cincoUvas;
     }
+    /** Return the award for 4 grapes */
     public int getFour(){
         return cuatroUvas;
     }
+    /** Return the award for 3 grapes */
     public int getThree(){
         return tresUvas;
     }

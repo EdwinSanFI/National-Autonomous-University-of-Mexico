@@ -16,15 +16,16 @@ public class RedDice implements Awards {
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
+
+    /** Return the award for 5 dices */
     public int getFive(){
         return fiveDices;
     }
+    /** Return the award for 4 dices */
     public int getFour(){
         return fourDices;
     }
+    /** Return the award for 3 dices */
     public int getThree(){
         return threeDices;
     }

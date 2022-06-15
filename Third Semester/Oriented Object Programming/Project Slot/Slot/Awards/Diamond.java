@@ -16,15 +16,15 @@ public class Diamond implements Awards {
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
+    /** Return the award for 5 diamonds */
     public int getFive(){
         return fiveDiamonds;
     }
+    /** Return the award for 4 diamonds */
     public int getFour(){
         return fourDiamonds;
     }
+    /** Return the award for 3 diamonds */
     public int getThree(){
         return threeDiamonds;
     }
