@@ -42,7 +42,10 @@ There are 5 possibles ways to win
   <img src="https://user-images.githubusercontent.com/6312342/173405073-cb46149c-2b38-4371-9989-2af5f15b8af6.png" alt="Awards" height="300px" style="cursor: none">
 </p>
 
-But also, the 5 ways could happen on the same time
+But also, you can 2 ways to win at the same time, for example:
+- Get the first line with 4 objects and the last line with 3 objects
+- Get the V line with 3 objects and /\ line with 4 objects
+- Get the V line with 4 objects and the last line with 4 objects
 <p align="center">
   <img src="https://user-images.githubusercontent.com/6312342/173405252-50dd5e99-2ca4-4743-bc56-7aa0b15119e7.png" alt="Combinations" width="800px">
 </p>
