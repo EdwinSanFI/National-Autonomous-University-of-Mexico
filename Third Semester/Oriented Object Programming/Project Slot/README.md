@@ -9,10 +9,18 @@
 
 
 # What does the program use?
-Object Oriented Programming on Java
-Inherence, Polymorphism, Abstraction, Constructors
-Try-Catch, Design Pattern (Prototype)
-Import, package, files
+
+<h3 align="center">Object Oriented Programming on Java</h3>
+
+- Inherence
+- Polymorphism
+- Abstraction
+- Constructors
+- Try-Catch
+- Design Pattern (Prototype)
+- Import
+- Package
+- Files
 
 # How does it work?
 
