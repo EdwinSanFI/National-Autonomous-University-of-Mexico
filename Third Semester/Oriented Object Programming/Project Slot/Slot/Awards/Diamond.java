@@ -1,10 +1,10 @@
-package Awards;
+package Slot.Awards;
 
 public class Diamond implements Awards {
     /** Los 3 premios */
-    private int cincoDiamantes = 10_000;
-    private int cuatroDiamantes = 5_000;
-    private int tresDiamantes = 2_500;
+    private int fiveDiamonds = 10_000;
+    private int fourDiamonds = 5_000;
+    private int threeDiamonds = 2_500;
     /** Nombre del objeto */
     private String name = "Diamante";
     /** Color para que se pueda imprimir con color */
@@ -13,23 +13,23 @@ public class Diamond implements Awards {
     public String getName(){
         return " "+name+" ";
     }
-    public String getNomString(){
+    public String getNameString(){
         return name;
     }
-    public void setNomString(String name){
+    public void setNameString(String name){
         this.name = name;
     }
-    public int getCinco(){
-        return cincoDiamantes;
+    public int getFive(){
+        return fiveDiamonds;
     }
-    public int getCuatro(){
-        return cuatroDiamantes;
+    public int getFour(){
+        return fourDiamonds;
     }
-    public int getTres(){
-        return tresDiamantes;
+    public int getThree(){
+        return threeDiamonds;
     }
 
-    /** Agregar metodo que guarde y regrese color */
+    /** Getter and setter for the color variable. */
     public String getColor() {
         return color;
     }
@@ -37,7 +37,7 @@ public class Diamond implements Awards {
         this.color = color;
     }
 
-    /** Patron de diseño Prototype */
+    /** Design Pattern PROTOTYPE */
     public Awards clone() {
         return new Diamond();
     }

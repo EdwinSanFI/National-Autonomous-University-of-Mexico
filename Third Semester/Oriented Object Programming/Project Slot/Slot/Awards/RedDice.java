@@ -1,10 +1,10 @@
-package Awards;
+package Slot.Awards;
 
 public class RedDice implements Awards {
     /** Los 3 premios */
-    private int cincoDados = 100_000;
-    private int cuatroDados = 30_000;
-    private int tresDados = 15_000;
+    private int fiveDices = 100_000;
+    private int fourDices = 30_000;
+    private int threeDices = 15_000;
     /** Nombre del objeto */
     private String name = "Dado Rojo";
     /** Color para que se pueda imprimir con color */
@@ -13,20 +13,20 @@ public class RedDice implements Awards {
     public String getName(){
         return " "+name;
     }
-    public String getNomString(){
+    public String getNameString(){
         return name;
     }
-    public void setNomString(String name){
+    public void setNameString(String name){
         this.name = name;
     }
-    public int getCinco(){
-        return cincoDados;
+    public int getFive(){
+        return fiveDices;
     }
-    public int getCuatro(){
-        return cuatroDados;
+    public int getFour(){
+        return fourDices;
     }
-    public int getTres(){
-        return tresDados;
+    public int getThree(){
+        return threeDices;
     }
 
     /** Agregar metodo que guarde y regrese color */

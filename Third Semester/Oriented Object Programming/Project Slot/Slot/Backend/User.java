@@ -1,8 +1,7 @@
-package Backend;
+package Slot.Backend;
+
 import java.util.*;
-
-import Awards.*;
-
+import Slot.Awards.*;
 import java.io.*;
 import java.lang.Thread;
 
@@ -25,7 +24,7 @@ public class User{
         // Writing in the file the data of the user when he/she creates an account
         try {
             try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter("cuentas.csv",true));
+                BufferedWriter bw = new BufferedWriter(new FileWriter("accounts.csv",true));
                 bw.write(datos);
                 bw.close();
             } catch (FileNotFoundException e) {
@@ -36,6 +35,7 @@ public class User{
         }
     }
 
+    // ! 1
     public void crearCuenta() {
         // Variables for the passwords
         char [] contr1;
@@ -110,7 +110,7 @@ public class User{
 
         // Reading a csv file and checking if the username and password are correct.
         try {
-            BufferedReader csvReader = new BufferedReader(new FileReader("cuentas.csv"));
+            BufferedReader csvReader = new BufferedReader(new FileReader("accounts.csv"));
                 String line = csvReader.readLine();
                 while (line != null && success != 1) {
                     String[] info = line.split(",");
@@ -138,7 +138,9 @@ public class User{
         /** Creditos del usuario */
         System.out.println("Creditos disponibles: "+usuario[3]+RESET);
     }
+    // ! 1
 
+    // ! 2
     public void ingresarPesos(int ingresapesos, String[] usuario) {
         int dineroUsuario = Integer.parseInt(usuario[2]);
         dineroUsuario += ingresapesos;
@@ -146,7 +148,7 @@ public class User{
 
         try {
             String guardarInformacion = "";
-            BufferedReader csvReader = new BufferedReader(new FileReader("cuentas.csv"));
+            BufferedReader csvReader = new BufferedReader(new FileReader("accounts.csv"));
             String line = csvReader.readLine();
             String[] info = line.split(",");
             // Cuando se obtenga la linea del usuario a modificar
@@ -167,7 +169,7 @@ public class User{
             }
 
             /** Update the csvReader file  */
-            FileWriter fileWriter = new FileWriter("cuentas.csv");
+            FileWriter fileWriter = new FileWriter("accounts.csv");
             fileWriter.append(guardarInformacion);
             fileWriter.close();
             csvReader.close();
@@ -187,7 +189,7 @@ public class User{
 
             try {
                 String guardarInformacion = "";
-                BufferedReader csvReader = new BufferedReader(new FileReader("cuentas.csv"));
+                BufferedReader csvReader = new BufferedReader(new FileReader("accounts.csv"));
                 String line = csvReader.readLine();
                 String[] info = line.split(",");
                 // Cuando se obtenga la linea del usuario a modificar
@@ -211,7 +213,7 @@ public class User{
                 }
 
                 /** Update the csvReader file  */
-                FileWriter fileWriter = new FileWriter("cuentas.csv");
+                FileWriter fileWriter = new FileWriter("accounts.csv");
                 fileWriter.append(guardarInformacion);
                 fileWriter.close();
                 csvReader.close();
@@ -234,7 +236,7 @@ public class User{
 
             try {
                 String guardarInformacion = "";
-                BufferedReader csvReader = new BufferedReader(new FileReader("cuentas.csv"));
+                BufferedReader csvReader = new BufferedReader(new FileReader("accounts.csv"));
                 String line = csvReader.readLine();
                 String[] info = line.split(",");
                 // Cuando se obtenga la linea del usuario a modificar
@@ -258,7 +260,7 @@ public class User{
                 }
 
                 /** Update the csvReader file  */
-                FileWriter fileWriter = new FileWriter("cuentas.csv");
+                FileWriter fileWriter = new FileWriter("accounts.csv");
                 fileWriter.append(guardarInformacion);
                 fileWriter.close();
                 csvReader.close();
@@ -278,7 +280,7 @@ public class User{
 	    	System.out.println("\n\t"+ROJO+retpes+RESET+" pesos retirados. \n\t"+ VERDE+dineroUsuario+RESET+" dinero restante");
             try {
                 String guardarInformacion = "";
-                BufferedReader csvReader = new BufferedReader(new FileReader("cuentas.csv"));
+                BufferedReader csvReader = new BufferedReader(new FileReader("accounts.csv"));
                 String line = csvReader.readLine();
                 String[] info = line.split(",");
                 // Cuando se obtenga la linea del usuario a modificar
@@ -299,7 +301,7 @@ public class User{
                 }
 
                 /** Update the csvReader file  */
-                FileWriter fileWriter = new FileWriter("cuentas.csv");
+                FileWriter fileWriter = new FileWriter("accounts.csv");
                 fileWriter.append(guardarInformacion);
                 fileWriter.close();
                 csvReader.close();
@@ -311,50 +313,11 @@ public class User{
 	    }
     }
 
-    public void listaPremios () {
-        System.out.println(AZUL+"\n\tTabla de premios para apuestas de 5 pesos:\n"+RESET);
-        ArrayList<String[]> premios = new ArrayList<>();
-        String[] cabecera = {"Nombre    ", " 3 objetos ", " 4 objetos ", " 5 objetos"};
-        premios.add(cabecera);
-
-        Awards uvas = new Grape();
-    	String [] premiosUvas = {"Uva       ","   "+Integer.toString(uvas.getTres())+"     ", "   "+Integer.toString(uvas.getCuatro())+"    ", "   "+Integer.toString(uvas.getCinco())};
-        premios.add(premiosUvas);
-
-        Awards cerezas = new Cherry();
-    	String [] premiosCereza = {"Cereza    ","   "+Integer.toString(cerezas.getTres())+"     ", "   "+Integer.toString(cerezas.getCuatro())+"    ", "  "+Integer.toString(cerezas.getCinco())};
-        premios.add(premiosCereza);
-
-        Awards comodin = new Comodin();
-    	String [] premiosComodin = {"Comodin   ","   "+Integer.toString(comodin.getTres())+"   ", "   "+Integer.toString(comodin.getCuatro())+"   ", "  "+Integer.toString(comodin.getCinco())};
-        premios.add(premiosComodin);
-
-        Awards diamante = new Diamond();
-    	String [] premiosDiamante = {"Diamante  ","   "+Integer.toString(diamante.getTres())+"    ", "   "+Integer.toString(diamante.getCuatro())+"   ", "   "+Integer.toString(diamante.getCinco())};
-        premios.add(premiosDiamante);
-
-        Awards sandia = new Watermelon();
-    	String [] premiosSandia = {"Sandia    ","   "+Integer.toString(sandia.getTres())+"     ", "   "+Integer.toString(sandia.getCuatro())+"    ", "   "+Integer.toString(sandia.getCinco())};
-        premios.add(premiosSandia);
-
-        Awards siete = new Seven();
-    	String [] premiosSiete = {"Siete     ","   "+Integer.toString(siete.getTres())+"   ", "   "+Integer.toString(siete.getCuatro())+"  ", "   "+Integer.toString(siete.getCinco())};
-        premios.add(premiosSiete);
-
-        Awards trebol = new Clover();
-    	String [] premiosTrebol = {"Trebol    ","   "+Integer.toString(trebol.getTres())+"     ", "   "+Integer.toString(trebol.getCuatro())+"   ", "   "+Integer.toString(trebol.getCinco())};
-        premios.add(premiosTrebol);
-
-        for (String[] premio : premios) {
-    		System.out.println("\t"+premio[0]+": "+premio[1]+" "+premio[2]+" "+premio[3]);
-    	}
-    }
-
     // Este es un metodo que cree para modificar los creditos del usuario una vez que gana
     public void modificarCreditos(int creditos, String[] usuario, int apuestas) {
         try {
             String guardarInformacion = "";
-            BufferedReader csvReader = new BufferedReader(new FileReader("cuentas.csv"));
+            BufferedReader csvReader = new BufferedReader(new FileReader("accounts.csv"));
             String line = csvReader.readLine();
             // Como es una linea de STRING con ",", se separa para que se obtenga en [] y acceder mas facil
             String[] info = line.split(",");
@@ -381,7 +344,7 @@ public class User{
             }
 
             /** Update the csvReader file  */
-            FileWriter fileWriter = new FileWriter("cuentas.csv");
+            FileWriter fileWriter = new FileWriter("accounts.csv");
             fileWriter.append(guardarInformacion);
             fileWriter.close();
             csvReader.close();
@@ -397,7 +360,7 @@ public class User{
     public void modificarDinero(int dinero, String[] usuario){
         try {
             String guardarInformacion = "";
-            BufferedReader csvReader = new BufferedReader(new FileReader("cuentas.csv"));
+            BufferedReader csvReader = new BufferedReader(new FileReader("accounts.csv"));
             String line = csvReader.readLine();
             String[] info = line.split(",");
             while (!info[0].equals(usuario[0]) ) {
@@ -413,7 +376,7 @@ public class User{
             }
 
             /** Update the csvReader file  */
-            FileWriter fileWriter = new FileWriter("cuentas.csv");
+            FileWriter fileWriter = new FileWriter("accounts.csv");
             fileWriter.append(guardarInformacion);
             fileWriter.close();
             csvReader.close();
@@ -423,11 +386,51 @@ public class User{
             e.getMessage();
         }
     }
+    // ! 2
+
+    public void listaPremios () {
+        System.out.println(AZUL+"\n\tTabla de premios para apuestas de 5 pesos:\n"+RESET);
+        ArrayList<String[]> premios = new ArrayList<>();
+        String[] cabecera = {"Nombre    ", " 3 objetos ", " 4 objetos ", " 5 objetos"};
+        premios.add(cabecera);
+
+        Awards uvas = new Grape();
+    	String [] premiosUvas = {"Uva       ","   "+Integer.toString(uvas.getThree())+"     ", "   "+Integer.toString(uvas.getFour())+"    ", "   "+Integer.toString(uvas.getFive())};
+        premios.add(premiosUvas);
+
+        Awards cerezas = new Cherry();
+    	String [] premiosCereza = {"Cereza    ","   "+Integer.toString(cerezas.getThree())+"     ", "   "+Integer.toString(cerezas.getFour())+"    ", "  "+Integer.toString(cerezas.getFive())};
+        premios.add(premiosCereza);
+
+        Awards redDice = new RedDice();
+    	String [] premiosComodin = {"Comodin   ","   "+Integer.toString(redDice.getThree())+"   ", "   "+Integer.toString(redDice.getFour())+"   ", "  "+Integer.toString(redDice.getFive())};
+        premios.add(premiosComodin);
+
+        Awards diamante = new Diamond();
+    	String [] premiosDiamante = {"Diamante  ","   "+Integer.toString(diamante.getThree())+"    ", "   "+Integer.toString(diamante.getFour())+"   ", "   "+Integer.toString(diamante.getFive())};
+        premios.add(premiosDiamante);
+
+        Awards sandia = new Watermelon();
+    	String [] premiosSandia = {"Sandia    ","   "+Integer.toString(sandia.getThree())+"     ", "   "+Integer.toString(sandia.getFour())+"    ", "   "+Integer.toString(sandia.getFive())};
+        premios.add(premiosSandia);
+
+        Awards siete = new Seven();
+    	String [] premiosSiete = {"Siete     ","   "+Integer.toString(siete.getThree())+"   ", "   "+Integer.toString(siete.getFour())+"  ", "   "+Integer.toString(siete.getFive())};
+        premios.add(premiosSiete);
+
+        Awards trebol = new Clover();
+    	String [] premiosTrebol = {"Trebol    ","   "+Integer.toString(trebol.getThree())+"     ", "   "+Integer.toString(trebol.getFour())+"   ", "   "+Integer.toString(trebol.getFive())};
+        premios.add(premiosTrebol);
+
+        for (String[] premio : premios) {
+    		System.out.println("\t"+premio[0]+": "+premio[1]+" "+premio[2]+" "+premio[3]);
+    	}
+    }
 
     /** Mejora en un futuro */
     public String[] buscarUsuario(String nombreUsuario) {
         try {
-            BufferedReader csvReader = new BufferedReader(new FileReader("cuentas.csv"));
+            BufferedReader csvReader = new BufferedReader(new FileReader("accounts.csv"));
             String line = csvReader.readLine();
             String[] info = line.split(",");
             while (line != null) {
@@ -462,7 +465,7 @@ public class User{
             String tirar = sc.next();
             if (tirar.equals("T")) {
                 /** Tira de la palanca y retorna los creditos ganados */
-                creditosGanados = tp.Jugar();
+                creditosGanados = tp.play();
                 /** Si gana creditos */
                 if (creditosGanados > 0) {
                     /** Actualiza los creditos ganados */
@@ -523,13 +526,13 @@ public class User{
         int opcInicio = 0;
         int opc2 = 0;
         String usuario[] = null;
-        String menu = "\n1. Jugar" +
-                "\n2. Modificar cuenta" +
-                "\n3. Ver lista de premios" +
-                "\n4. Cerrar sesion";
+        String menu = "\n1. Play" +
+                "\n2. Modify account" +
+                "\n3. See award list" +
+                "\n4. Log out";
 
-        String menuInicio = "\n1. Crear cuenta"+
-                            "\n2. Iniciar sesion";
+        String menuInicio = "\n1. Create account"+
+                            "\n2. Log In";
 
         String menuModificar = "\n\t1. Ingresar pesos" +
                                 "\n\t2. Pesos a creditos" +
@@ -543,7 +546,7 @@ public class User{
         while (opcInicio > 0 && opcInicio < 3) {
             switch (opcInicio) {
                 case 1:
-                /** Se crea la cuenta y se guarda en cuentas.csv con exito */
+                /** Se crea la cuenta y se guarda en accounts.csv con exito */
                     crearCuenta();
                     System.out.println(menuInicio);
                     opcInicio = sc.nextInt();

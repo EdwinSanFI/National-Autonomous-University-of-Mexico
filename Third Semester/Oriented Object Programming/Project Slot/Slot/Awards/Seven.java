@@ -1,30 +1,30 @@
-package Awards;
+package Slot.Awards;
 
 public class Seven implements Awards {
-    private int cincoSietes = 50_000;
-    private int cuatroSietes = 25_000;
-    private int tresSietes = 10_000;
+    private int fiveSevens = 50_000;
+    private int fourSevens = 25_000;
+    private int threeSevens = 10_000;
     private String name = "Siete";
     private String color = "\033[37m";
 
     public String getName(){
         return "   "+name+"  ";
     }
-    public String getNomString(){
+    public String getNameString(){
         return name;
     }
-    public void setNomString(String name){
+    public void setNameString(String name){
         this.name = name;
     }
 
-    public int getCinco(){
-        return cincoSietes;
+    public int getFive(){
+        return fiveSevens;
     }
-    public int getCuatro(){
-        return cuatroSietes;
+    public int getFour(){
+        return fourSevens;
     }
-    public int getTres(){
-        return tresSietes;
+    public int getThree(){
+        return threeSevens;
     }
 
     /** Agregar metodo que guarde y regrese color */

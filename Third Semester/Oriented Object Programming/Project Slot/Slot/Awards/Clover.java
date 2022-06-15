@@ -1,29 +1,29 @@
-package Awards;
+package Slot.Awards;
 
 public class Clover implements Awards {
-    private int cincoTreboles = 2_500;
-    private int cuatroTreboles = 1_250;
-    private int tresTreboles = 650;
+    private int fiveClovers = 2_500;
+    private int fourClovers = 1_250;
+    private int threeClovers = 650;
     private String name = "Clover";
     private String color = "\033[37m";
 
     public String getName(){
         return "  "+name+"  ";
     }
-    public String getNomString(){
+    public String getNameString(){
         return name;
     }
-    public void setNomString(String name){
+    public void setNameString(String name){
         this.name = name;
     }
-    public int getCinco(){
-        return cincoTreboles;
+    public int getFive(){
+        return fiveClovers;
     }
-    public int getCuatro(){
-        return cuatroTreboles;
+    public int getFour(){
+        return fourClovers;
     }
-    public int getTres(){
-        return tresTreboles;
+    public int getThree(){
+        return threeClovers;
     }
 
     /** Agregar metodo que guarde y regrese color */

@@ -1,29 +1,29 @@
-package Awards;
+package Slot.Awards;
 
 public class Watermelon implements Awards {
-    private int cincoSandias = 650;
-    private int cuatroSandias = 325;
-    private int tresSandias = 160;
+    private int fiveWatermelons = 650;
+    private int fourWatermelons = 325;
+    private int threeWatermelons = 160;
     private String name = "Sandia";
     private String color = "";
 
     public String getName(){
         return "  "+name+"  ";
     }
-    public String getNomString(){
+    public String getNameString(){
         return name;
     }
-    public void setNomString(String name){
+    public void setNameString(String name){
         this.name = name;
     }
-    public int getCinco(){
-        return cincoSandias;
+    public int getFive(){
+        return fiveWatermelons;
     }
-    public int getCuatro(){
-        return cuatroSandias;
+    public int getFour(){
+        return fourWatermelons;
     }
-    public int getTres(){
-        return tresSandias;
+    public int getThree(){
+        return threeWatermelons;
     }
 
     /** Agregar metodo que guarde y regrese color */

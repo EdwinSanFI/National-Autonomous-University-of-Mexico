@@ -1,4 +1,4 @@
-package Awards;
+package Slot.Awards;
 import java.util.Random;
 
 public class PullLever {
@@ -10,18 +10,16 @@ public class PullLever {
     Clover clover = new Clover();
     Grape grape = new Grape();
     Random random = new Random();
-    int creditos;
     /** For color */
     final String RESET = "\u001B[0m";
 
     /**
-     * 
+     * Pull the lever and get the award
      * @return the credits won
      */
     public int play(){
 
-        /** Score of the user */
-        int score = 0;
+        int credits;
         /** Roulette */
         Awards[][] roulette = new Awards[3][5];
 
@@ -31,47 +29,49 @@ public class PullLever {
                 int valor = random.nextInt(0, 101);
                 /** 5% */
                 if (valor >= 0 && valor <= 5) {
+                    /** Set in the [i][j] a red dice object */
                     roulette[i][j] = redDice.clone();
                 /** 10% */
                 } else if (valor > 5 && valor <= 15) {
+                    /** Set in the [i][j] a seven object */
                     roulette[i][j] = seven.clone();
                 /** 15% */
                 } else if (valor > 15 && valor <= 25) {
+                    /** Set in the [i][j] a diamond object */
                     roulette[i][j] = diamond.clone();
                 /** 15% */
                 } else if (valor > 25 && valor <= 45) {
+                    /** Set in the [i][j] a clover object */
                     roulette[i][j] = clover.clone();
                 /** 15% */
                 } else if (valor > 45 && valor <= 60) {
+                    /** Set in the [i][j] a cherry object */
                     roulette[i][j] = cherry.clone();
                 /** 20% */
                 } else if (valor > 60 && valor <= 80) {
+                    /** Set in the [i][j] a watermelon object */
                     roulette[i][j] = watermelon.clone();
                 /** 20% */
                 } else if (valor > 80 && valor <= 100) {
+                    /** Set in the [i][j] a grape object */
                     roulette[i][j] = grape.clone();
                 }
             }
         }
 
-
-        /** Pruebas */
-
-        // roulette[0][0] = redDice.clone();
-        // roulette[1][1] = redDice.clone();
-        // roulette[2][2] = redDice.clone();
-        // roulette[1][3] = redDice.clone();
-        // roulette[0][4] = redDice.clone();
-
-
-        creditos = revisarLinea(score, roulette);
-
+        /** Print the roulette */
         printRoulette(roulette, RESET);
-        /** Lo puse despues para que al imprimir aparezcan aquellos espacios ganadores */
-        return creditos;
+        /** Get the credits won */
+        credits = checkLines(roulette);
+        /** Return the credits won */
+        return credits;
     }
 
-    /** Print the roulette */
+    /**
+     * Print the roulette
+     * @param roulette the roulette array
+     * @param reset the reset color
+     */
     public void printRoulette(Awards roulette[][], String reset){
         System.out.println("\n");
         /** Print each line */
@@ -83,11 +83,18 @@ public class PullLever {
             }
             System.out.println();
         }
-
     }
 
-    /** Revisa que linea de premio hay */
-    public int revisarLinea(int score, Awards roulette[][]){
+    /**
+     * Check the lines and get the credits won
+     * @param roulette the roulette array
+     * @return the credits won
+     */
+    public int checkLines(Awards roulette[][]){
+        /** Score of the user */
+        int score = 0;
+
+        /** Colors for console */
         String PURPLE = "\033[35m";
         String RED = "\033[31m";
         String BLUE = "\033[34m";
@@ -198,7 +205,6 @@ public class PullLever {
                 score += roulette[2][2].getThree();
             }
         }
-
         return score;
     }
 }

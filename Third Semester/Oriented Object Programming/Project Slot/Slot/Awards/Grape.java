@@ -1,4 +1,4 @@
-package Awards;
+package Slot.Awards;
 
 public class Grape implements Awards {
 

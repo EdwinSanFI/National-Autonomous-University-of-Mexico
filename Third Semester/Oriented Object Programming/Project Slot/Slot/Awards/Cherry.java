@@ -1,10 +1,10 @@
-package Awards;
+package Slot.Awards;
 
 public class Cherry implements Awards {
     /** Los 3 premios */
-    private int cincoCerezas = 1_500;
-    private int cuatroCerezas = 1_000;
-    private int tresCerezas = 600;
+    private int fiveCherrys = 1_500;
+    private int fourCherrys = 1_000;
+    private int threeCherrys = 600;
     /** Nombre del objeto */
     private String name = "Cereza";
     /** Color para que se pueda imprimir con color */
@@ -13,20 +13,20 @@ public class Cherry implements Awards {
     public String getName(){
         return "  "+name+"  ";
     }
-    public String getNomString(){
+    public String getNameString(){
         return name;
     }
-    public void setNomString(String name){
+    public void setNameString(String name){
         this.name = name;
     }
-    public int getCinco(){
-        return cincoCerezas;
+    public int getFive(){
+        return fiveCherrys;
     }
-    public int getCuatro(){
-        return cuatroCerezas;
+    public int getFour(){
+        return fourCherrys;
     }
-    public int getTres(){
-        return tresCerezas;
+    public int getThree(){
+        return threeCherrys;
     }
 
     /** Agregar metodo que guarde y regrese color */

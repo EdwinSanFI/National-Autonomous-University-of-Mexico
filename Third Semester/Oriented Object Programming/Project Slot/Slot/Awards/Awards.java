@@ -1,4 +1,4 @@
-package Awards;
+package Slot.Awards;
 
 public interface Awards {
     /** Get the 3 possible awards */
