@@ -5,9 +5,19 @@
 ![Slot](https://user-images.githubusercontent.com/6312342/170311333-cc499e49-d6ae-441f-8fc9-b997a683968c.png)
 
 # Table of contents
+- [Overview](#overview)
 - [Install](#how-to-install-and-run)
 - [Results](#results)
 
+# Overview
+The project consists of the development of an application where the user can experience a casino together with the intensity of emotions that this entails.
+Being the final project of this subject, the use of knowledge acquired in the last months. 
+
+When logging in, the program indicates if the username and password entered match the data stored in the database. If the data is correct, the program gives access to the main menu of the game, displaying a welcome message with the relevant data of the account, such as the balance and available credits. The user could play, add money, make credit-money conversion, see list of prizes or simply close the active session. If the access data is not correct, the user could try again.
+
+When playing the game, the user can choose between pulling the lever or exiting the game. If you choose pull the lever, you will be asked how much you want to bet, because the prize, if you win it, will be based on the initial bet. The bet will be deducted from your balance immediately and the game will start.
+
+The prize will depend on the random result of the reels when they finish rolling and, if it is the case, the prize is added to the user's account. If the user does not win nothing, the program will continue asking if you want to bet more or if you want to quit.
 
 # What does the program use?
 
@@ -23,7 +33,7 @@
 - Package
 - Files
 
-# Overview
+
 
 # How does it work?
 
