@@ -1,35 +1,35 @@
 package Slot.Awards;
 
 public class Diamond implements Awards {
-    /** Los 3 premios */
     private int fiveDiamonds = 10_000;
     private int fourDiamonds = 5_000;
     private int threeDiamonds = 2_500;
-    /** Nombre del objeto */
-    private String name = "Diamante";
-    /** Color para que se pueda imprimir con color */
+    private String name = "Diamond";
     private String color = "";
 
+    /** Return the name with spaces for the roulette*/
     public String getName(){
-        return " "+name+" ";
+        return " "+name+"";
     }
+    /** Return the name without spaces */
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
+
+    /** Return the award for 5 diamonds */
     public int getFive(){
         return fiveDiamonds;
     }
+    /** Return the award for 4 diamonds */
     public int getFour(){
         return fourDiamonds;
     }
+    /** Return the award for 3 diamonds */
     public int getThree(){
         return threeDiamonds;
     }
 
-    /** Getter and setter for the color variable. */
+    /** Getter and setter for the color of the object */
     public String getColor() {
         return color;
     }

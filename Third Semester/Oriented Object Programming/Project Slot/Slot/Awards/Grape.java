@@ -1,36 +1,35 @@
 package Slot.Awards;
 
 public class Grape implements Awards {
+    private int fiveGrapes = 650;
+    private int fourGrapes = 325;
+    private int threeGrapes = 160;
+    private String name = "Grape";
+    private String color = "";
 
-    private int cincoUvas = 650;
-    private int cuatroUvas = 325;
-    private int tresUvas = 160;
-    private String name = "Uva";
-    private String color = "\033[37m";
-
-    /** Obtiene y asigna el nombre */
+    /** Return the name with spaces for the roulette*/
     public String getName() {
-        return "    "+name+"   ";
+        return "   "+name+"  ";
     }
+    /** Return the name without spaces */
     public String getNameString(){
         return name;
     }
-    public void setNameString(String name){
-        this.name = name;
-    }
 
-    /** Obtiene los 3 posibles premios */
+    /** Return the award for 5 grapes */
     public int getFive(){
-        return cincoUvas;
+        return fiveGrapes;
     }
+    /** Return the award for 4 grapes */
     public int getFour(){
-        return cuatroUvas;
+        return fourGrapes;
     }
+    /** Return the award for 3 grapes */
     public int getThree(){
-        return tresUvas;
+        return threeGrapes;
     }
 
-    /** Agregar metodo que guarde y regrese color */
+    /** Getter and setter for the color of the object */
     public String getColor() {
         return color;
     }
@@ -38,7 +37,7 @@ public class Grape implements Awards {
         this.color = color;
     }
 
-    /** Patron de diseño Prototype */
+    /** Design Pattern PROTOTYPE */
     public Awards clone() {
         return new Grape();
     }

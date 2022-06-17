@@ -3,7 +3,7 @@
  */
 
 package Slot;
-import Slot.Backend.*;
+import Slot.Backend.User;
 
 public class Slot {
     public static void main(String[] args) {

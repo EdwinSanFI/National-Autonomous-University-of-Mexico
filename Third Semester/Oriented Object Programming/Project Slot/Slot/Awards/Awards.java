@@ -9,7 +9,6 @@ public interface Awards {
     /** Set and get the name of the object */
     public String getName();
     public String getNameString();
-    public void setNameString(String name);
 
     /** Set and get the color of the object */
     public String getColor();
