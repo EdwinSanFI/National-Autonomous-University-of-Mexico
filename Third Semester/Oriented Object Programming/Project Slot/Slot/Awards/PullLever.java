@@ -26,7 +26,7 @@ public class PullLever {
         /** Asigna valores aleatorios */
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
-                int valor = random.nextInt(0, 101);
+                int valor = random.nextInt(101);
                 /** 5% */
                 if (valor >= 0 && valor <= 5) {
                     /** Set in the [i][j] a red dice object */

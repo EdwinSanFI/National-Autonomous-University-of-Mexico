@@ -5,7 +5,7 @@ public class Clover implements Awards {
     private int fourClovers = 1_250;
     private int threeClovers = 650;
     private String name = "Clover";
-    private String color = "\033[37m";
+    private String color = "";
 
     /** Return the name with spaces for the roulette*/
     public String getName(){

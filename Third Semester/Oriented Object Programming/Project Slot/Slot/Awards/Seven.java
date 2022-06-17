@@ -4,7 +4,7 @@ public class Seven implements Awards {
     private int fiveSevens = 50_000;
     private int fourSevens = 25_000;
     private int threeSevens = 10_000;
-    private String name = "Siete";
+    private String name = "Seven";
     private String color = "";
 
     /** Return the name with spaces for the roulette*/

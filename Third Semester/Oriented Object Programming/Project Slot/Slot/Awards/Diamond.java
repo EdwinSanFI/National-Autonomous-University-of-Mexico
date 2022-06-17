@@ -4,12 +4,12 @@ public class Diamond implements Awards {
     private int fiveDiamonds = 10_000;
     private int fourDiamonds = 5_000;
     private int threeDiamonds = 2_500;
-    private String name = "Diamante";
+    private String name = "Diamond";
     private String color = "";
 
     /** Return the name with spaces for the roulette*/
     public String getName(){
-        return " "+name+" ";
+        return " "+name+"";
     }
     /** Return the name without spaces */
     public String getNameString(){
