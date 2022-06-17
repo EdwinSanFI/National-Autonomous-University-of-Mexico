@@ -120,6 +120,7 @@ public class User{
                     } else {
                         System.out.println("\n\tPlease enter a bet of 5, 7, 10, 15, 20, 30, 50 or 100 dollars");
                         return true;
+                        // return true;
                     }
                 } else if(pull.equals("Q") || pull.equals("q")) {
                     System.out.println("Getting out...");
