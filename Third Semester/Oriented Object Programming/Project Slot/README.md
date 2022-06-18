@@ -36,8 +36,11 @@ The prize will depend on the random result of the reels when they finish rolling
 
 
 # How does it work?
-
-
+You have to compile the program first and then run it
+```java
+javac Slot/Slot.java // Compile the program
+java Slot.Slot // run the program
+```
 
 # Get started
 <h3>Clone the respository</h3
