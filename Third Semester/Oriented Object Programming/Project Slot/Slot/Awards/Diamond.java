@@ -9,7 +9,7 @@ public class Diamond implements Awards {
 
     /** Return the name with spaces for the roulette*/
     public String getName(){
-        return " "+name+"";
+        return "  "+name+" ";
     }
     /** Return the name without spaces */
     public String getNameString(){

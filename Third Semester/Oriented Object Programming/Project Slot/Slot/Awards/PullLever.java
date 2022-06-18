@@ -59,10 +59,10 @@ public class PullLever {
             }
         }
 
-        /** Print the roulette */
-        printRoulette(roulette, RESET);
         /** Get the credits won */
         credits = checkLines(roulette);
+        /** Print the roulette */
+        printRoulette(roulette, RESET);
         /** Return the credits won */
         return credits;
     }
