@@ -118,12 +118,12 @@ public class User{
                         }
                         return true;
                     } else {
-                        System.out.println("\n\tPlease enter a bet of 5, 7, 10, 15, 20, 30, 50 or 100 dollars");
+                        System.out.println(RED+"\n\tInvalid Bet\n"+RESET);
                         return true;
                         // return true;
                     }
-                } else if(pull.equals("Q") || pull.equals("q")) {
-                    System.out.println("Getting out...");
+                } else if(pull.equals("E") || pull.equals("e")) {
+                    System.out.println("Going back...");
                     try {
                         Thread.sleep(800);
                     } catch (Exception e) {
