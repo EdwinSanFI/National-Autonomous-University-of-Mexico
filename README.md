@@ -27,7 +27,7 @@ Temary:
 <!-- Segundo semestre -->
 ## 🔴 [Second Semester](./Second%20Semester)
 #### 🟩 Subject: Data Structures and Algorithms I on C
-Temary:
+* Temary:
 
     Data Structures: Arrays, Linked Lists, Stacks, Queues, Divided and Conquer
 
@@ -43,7 +43,7 @@ Temary:
 
 ## 🔴 [Third Semester](./Third%20Semester)
 #### 🟩 Subject: [Data Structures and Algorithms II on Python](./Third%20Semester/Data%20Structures%20and%20Algorithms%20II/)
-Temary:
+* Temary:
 
     Data Structures:Trees, Graphs, Heaps, Hash Tables
 
@@ -71,7 +71,7 @@ Temary:
 
 
 #### 🟩 Subject: [Object Oriented Programming on Java](./Third%20Semester/Oriented%20Object%20Programming/)
-Temary:
+* Temary:
 
     OOP: Classes, Objects, Inheritance, Polymorphism, Encapsulation, Abstraction, Constructors, Cohesion, Hierarchy
 
@@ -85,9 +85,9 @@ Temary:
 
     Design Patterns: Singleton, Factory, Builder, Prototype, Adapter, Decorator, Facade, Proxy, etc.
 
-**Project 1**: Inscription System
+* **Project 1**: Inscription System
 
-**Final Project**: [Slot](https://github.com/EdwinSanFI/Project-Slot)
+* **Final Project**: [Slot](https://github.com/EdwinSanFI/Project-Slot)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/6312342/170311333-cc499e49-d6ae-441f-8fc9-b997a683968c.png" alt="Slot image" width=60%>
 </div>
