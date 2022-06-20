@@ -71,7 +71,6 @@ Temary:
 
 
 #### 🟩 Subject: [Object Oriented Programming on Java](./Third%20Semester/Oriented%20Object%20Programming/)
-##### Project 1: Inscription System
 Temary:
 
     OOP: Classes, Objects, Inheritance, Polymorphism, Encapsulation, Abstraction, Constructors, Cohesion, Hierarchy
@@ -85,6 +84,13 @@ Temary:
     Threads: Threads, Synchronization, Deadlocks
 
     Design Patterns: Singleton, Factory, Builder, Prototype, Adapter, Decorator, Facade, Proxy, etc.
+
+**Project 1**: Inscription System
+
+**Final Project**: [Slot](https://github.com/EdwinSanFI/Project-Slot)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/6312342/170311333-cc499e49-d6ae-441f-8fc9-b997a683968c.png" alt="Slot image" width=60%>
+</div>
 
 
 ## 🔴 [Fourth Semester](./Fourth%20Semester)
