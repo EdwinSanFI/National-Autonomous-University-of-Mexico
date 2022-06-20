@@ -1,4 +1,4 @@
-# 💻 Computer Engineering - UNAM
+<h1 align="center">💻 Computer Engineering - UNAM</h1>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/6312342/163523841-7f03e86c-1e99-4b19-9ca9-2ce06aca55a5.png" height="120px">
   <img src="https://user-images.githubusercontent.com/6312342/163523477-e9bdfbdb-d5f1-4030-a8cc-e9146e86e163.png">
