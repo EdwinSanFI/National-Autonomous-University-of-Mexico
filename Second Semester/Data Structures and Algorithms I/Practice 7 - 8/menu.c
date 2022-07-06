@@ -17,7 +17,7 @@
         borrarMenoresLista(lista, elemento);
 */
 
-void listaSimple(Lista *, int);
+void listaSimple(List *, int);
 
 // Se va a ejecutar primero esta funcion
 int main() {
@@ -26,7 +26,7 @@ int main() {
     int opcion, operacion, tam;
     // Aquí se va a ejecutar el menú
     printf("\t%c MEN%c %c\n", decoracion, auu, decoracion);
-    Lista lista = crearLista();
+    List lista = createLista();
 
     do {
         operacion = menu();
@@ -40,7 +40,7 @@ int menu() {
     printf("\t %c1.- Imprimir los valores de los nodos.\n", barras);
     printf("\t %c2.- Agregar al principio de la lista un Nodo.\n", barras);
     printf("\t %c3.- Agregar al final de la lista un Nodo.\n", barras);
-    // * Actividad 1.a 
+    // * Actividad 1.a
     printf("\t %c4.- Agregar en la posici%cn N de la lista un Nodo.\n", barras,ao);
     printf("\t %c5.- Borrar el primer Nodo de la lista.\n", barras);
     printf("\t %c6.- Borrar el %cltimo Nodo de la lista.\n", barras, au);
@@ -59,7 +59,7 @@ int menu() {
 }
 
 // Trabajamos en la lista ligada simple
-void listaSimple(Lista *lista, int operacion){
+void listaSimple(List *lista, int operacion){
     int elemento, posicion, repeticion;
     switch (operacion)
     {
