@@ -1,4 +1,4 @@
-#include "lista.h"
+#include "list.h"
 #include "acentos.h"
 
 /**
@@ -7,8 +7,8 @@
  * @property next - Pointer to the next node
  */
 struct Node{
-    int val; // Name-value of the node
-    struct Node* next; // Pointer to the next node
+    int val;
+    struct Node* next;
 };
 
 /**
