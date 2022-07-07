@@ -1,23 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Nodo Nodo;
-typedef struct Lista Lista;
+typedef struct Node Node;
+typedef struct List List;
 
-Lista crearLista();
-void print_list(Lista);
-void addPrincipioLista(Lista*,int);  
-void addFinalLista(Lista*,int);
-void borrarPrimero(Lista*);
-void borrarUltimo(Lista*);
-int primerElemento(Lista);
+List createList();
+void print_list(List);
+void insertNodeBeginning(List*,int);
+void insertNodeEnd(List*,int);
+void deleteNodeBeginning(List*);
+void deleteNodeEnd(List*);
+int primerElemento(List);
 
-// Por la actividad 1 se agregaron estas funciones 
+int tamano(List);
+
+// Por la actividad 1 se agregaron estas funciones
 // * Actividad 1.a
-void addIesimoLista(Lista*, int, int);
+void addIesimoLista(List*, int, int);
 // * Actividad 1.b
-int busqueda(Lista, int);
+int busqueda(List, int);
 // * Actividad 1.c
-void borrarIesimoLista(Lista*, int);
+void borrarIesimoLista(List*, int);
 // * Actividad 1.d
-void borrarMenoresLista(Lista* ,int);
+void borrarMenoresLista(List* ,int);
