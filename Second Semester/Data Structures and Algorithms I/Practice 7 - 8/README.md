@@ -1,7 +1,13 @@
 <h1 align="center"> Linked List </h1>
 
-<h1> Singly Linked List </h1>
+# Table of contents
+- [Singly Linked List](#singly-linked-list)
+- [Circular Linked List](#circular-linked-list)
+- [Doubly Circular Linked List](#doubly-circular-linked-list)
+- [Contributing](#contributing)
 
+
+# Singly Linked List
 
 <h2>Insert node at the beginning</h2>
 <div align="center">
@@ -34,3 +40,13 @@
   ![DeleteNodeSingly04](https://user-images.githubusercontent.com/6312342/177902687-26645242-eca4-456e-a607-408af2d3dd7d.png)
   
 </div>
+
+
+# Circular Linked List
+
+
+
+
+
+# Doubly Circular Linked List
+
