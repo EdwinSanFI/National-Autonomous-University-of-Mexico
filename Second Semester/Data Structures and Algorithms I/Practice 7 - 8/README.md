@@ -9,7 +9,8 @@
 
 # Singly Linked List
 
-<h2>Insert node at the beginning</h2>
+## Insert node at the beginning
+
 <div align="center">
 
   ![InsertNodeSingly01](https://user-images.githubusercontent.com/6312342/177890487-24b73733-f530-40a9-97f2-62f8e11e9faf.png)
@@ -17,7 +18,8 @@
 
 </div>
 
-<h2> Insert node at the end </h2>
+## Insert node at the end
+
 <div align="center">
 
   ![InsertNodeSingly03](https://user-images.githubusercontent.com/6312342/177902307-c51887e3-b088-4a8c-9570-3016b64aae7b.png)
@@ -25,7 +27,8 @@
 
 </div>
 
-<h2>Delete the first node</h2>
+## Delete the first node
+
 <div align="center">
 
   ![DeleteNodeSingly01](https://user-images.githubusercontent.com/6312342/177902357-05bfe582-cfe4-4566-a275-d73e5df6ab9a.png)
@@ -33,7 +36,8 @@
 
 </div>
 
-<h2> Delete the last node </h2>
+## Delete the last node
+
 <div align="center">
 
   ![DeleteNodeSingly03](https://user-images.githubusercontent.com/6312342/177902682-07fa3a71-731d-4ecc-8d24-076e868765b1.png)
