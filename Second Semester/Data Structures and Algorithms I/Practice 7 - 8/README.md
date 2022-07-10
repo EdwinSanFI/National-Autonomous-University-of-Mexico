@@ -2,6 +2,7 @@
 
 # Table of contents
 - [Singly Linked List](#singly-linked-list)
+- [Doubly Linked List](#doubly-linked-list)
 - [Circular Linked List](#circular-linked-list)
 - [Doubly Circular Linked List](#doubly-circular-linked-list)
 - [Contributing](#contributing)
@@ -44,6 +45,9 @@
   ![DeleteNodeSingly04](https://user-images.githubusercontent.com/6312342/177902687-26645242-eca4-456e-a607-408af2d3dd7d.png)
   
 </div>
+
+
+# Doubly Linked List
 
 
 # Circular Linked List
