@@ -10,6 +10,13 @@
 
 # Singly Linked List
 
+<div align="center">
+
+![SinglyLinkedList](https://user-images.githubusercontent.com/6312342/178552340-20cddc68-4252-4fca-8787-d2c693fa6d93.png)
+
+</div>
+
+
 ## Insert node at the beginning
 
 <div align="center">
