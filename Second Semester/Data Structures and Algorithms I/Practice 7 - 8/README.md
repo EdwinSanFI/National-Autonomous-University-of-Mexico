@@ -1,6 +1,8 @@
 <h1 align="center"> Linked List </h1>
 
 # Table of contents
+- [Linked List](#singly-linked-list)
+- [Get Started](#singly-linked-list)
 - [Singly Linked List](#singly-linked-list)
 - [Doubly Linked List](#doubly-linked-list)
 - [Circular Linked List](#circular-linked-list)
@@ -56,12 +58,27 @@
 
 # Doubly Linked List
 
+<div align="center">
+
+  ![Doubly Linked List](https://user-images.githubusercontent.com/6312342/179140999-abdfa3e1-11c8-422a-bcb6-7f9aeda310af.png)
+  
+</div>
+
+
 
 # Circular Linked List
 
+<div align="center">
 
-
+  ![Circular Linked List](https://user-images.githubusercontent.com/6312342/179141019-01edb804-0728-4db3-b911-18429f202edd.png)
+  
+</div>
 
 
 # Doubly Circular Linked List
 
+<div align="center">
+
+  ![Doubly Circular Linked List](https://user-images.githubusercontent.com/6312342/179141097-94382703-eed7-483b-b8a7-f5b301a0ef0a.png)
+  
+</div>
