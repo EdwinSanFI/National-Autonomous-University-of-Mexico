@@ -67,7 +67,7 @@
 
 <div align="center">
 
-  ![Doubly Linked List](https://user-images.githubusercontent.com/6312342/179140999-abdfa3e1-11c8-422a-bcb6-7f9aeda310af.png)
+  ![Doubly Linked List](https://user-images.githubusercontent.com/6312342/180096348-ad8baa2c-bccf-4748-83b7-e4372355762e.png)
 </div>
 
 # Doubly Circular Linked List
