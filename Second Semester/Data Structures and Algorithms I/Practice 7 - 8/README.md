@@ -81,16 +81,12 @@
 
 <div align="center">
 
-![InsertNodeDoublyCircular01](https://user-images.githubusercontent.com/6312342/180094362-0ddac19e-13c3-4fd3-892a-3129ce9e6b7b.png)
-![InsertNodeDoublyCircular02](https://user-images.githubusercontent.com/6312342/180094300-c30928be-ec5f-4d24-a00e-62a17aa9aff0.png)
+
 </div>
 
 ## Insert Node at the end
 
 <div align="center">
-
-![InsertNodeDoublyCircular03](https://user-images.githubusercontent.com/6312342/180093666-dff5a6b0-3b68-4007-a7c8-34eb701520a0.png)
-![InsertNodeDoublyCircular04](https://user-images.githubusercontent.com/6312342/180093676-b9aabb67-c5e1-47ab-99f6-0613f1874367.png)
-
-
+![InsertNodeDoublyCircular01](https://user-images.githubusercontent.com/6312342/180094362-0ddac19e-13c3-4fd3-892a-3129ce9e6b7b.png)
+![InsertNodeDoublyCircular02](https://user-images.githubusercontent.com/6312342/180094300-c30928be-ec5f-4d24-a00e-62a17aa9aff0.png)
 </div>
