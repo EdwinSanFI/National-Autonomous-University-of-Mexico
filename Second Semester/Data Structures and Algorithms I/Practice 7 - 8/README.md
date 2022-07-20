@@ -74,7 +74,7 @@
 
 <div align="center">
 
-  ![Doubly Circular Linked List](https://user-images.githubusercontent.com/6312342/179141097-94382703-eed7-483b-b8a7-f5b301a0ef0a.png)  
+  ![Doubly Circular Linked List](https://user-images.githubusercontent.com/6312342/180096457-be17681f-9af6-423f-8ea1-0b1eedd4d74c.png)
 </div>
 
 ## Insert Node at the beginning
