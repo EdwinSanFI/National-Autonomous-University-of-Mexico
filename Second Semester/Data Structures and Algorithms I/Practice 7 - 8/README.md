@@ -92,3 +92,19 @@
 ![InsertNodeDoublyCircular01](https://user-images.githubusercontent.com/6312342/180094362-0ddac19e-13c3-4fd3-892a-3129ce9e6b7b.png)
 ![InsertNodeDoublyCircular02](https://user-images.githubusercontent.com/6312342/180094300-c30928be-ec5f-4d24-a00e-62a17aa9aff0.png)
 </div>
+
+## Delete Node at the beginning
+
+<div align="center">
+
+  ![DeleteNodeDoublyCircular02](https://user-images.githubusercontent.com/6312342/180095470-e6a49791-af35-4623-89e8-fdff90698fff.png)
+  ![DeleteNodeDoublyCircular01](https://user-images.githubusercontent.com/6312342/180095484-824bfd02-96ff-4449-b8b9-8d5e87197e89.png)
+</div>
+
+## Delete Node at the end
+
+<div align="center">
+  
+  ![DeleteNodeDoublyCircular03](https://user-images.githubusercontent.com/6312342/180095454-3f965fb1-94e3-4773-8097-92d8a4ee9915.png)
+  ![DeleteNodeDoublyCircular04](https://user-images.githubusercontent.com/6312342/180095443-47536049-e7c3-4c2a-afff-65976b1cbe0b.png)
+</div>
