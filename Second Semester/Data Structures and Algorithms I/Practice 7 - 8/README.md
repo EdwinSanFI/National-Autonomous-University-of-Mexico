@@ -97,8 +97,8 @@
 
 <div align="center">
 
-  ![DeleteNodeDoublyCircular02](https://user-images.githubusercontent.com/6312342/180095470-e6a49791-af35-4623-89e8-fdff90698fff.png)
   ![DeleteNodeDoublyCircular01](https://user-images.githubusercontent.com/6312342/180095484-824bfd02-96ff-4449-b8b9-8d5e87197e89.png)
+  ![DeleteNodeDoublyCircular02](https://user-images.githubusercontent.com/6312342/180095470-e6a49791-af35-4623-89e8-fdff90698fff.png)
 </div>
 
 ## Delete Node at the end
