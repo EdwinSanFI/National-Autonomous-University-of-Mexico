@@ -34,7 +34,7 @@ class grafo():
             node2.add_neighbor(node1)
         else:
             print("No existe uno de los nodes, {} o {}".format(node_name1, node_name2))
-            print("Por lo tanto no se agrego la arista\n")
+            print("Therefore the edge is not added \n")
 
     def imprimir(self):
         for n in self.vertex.keys():
