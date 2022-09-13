@@ -1,6 +1,8 @@
 ## Graphs
 ### Classes
 
+#### Node
+
 A node is a basic data structure which contain data and one or more links to other nodes. Nodes can be used to represent a graph, tree structure or a linked list.
 
 The nodes could contain many values, but in this case it will contain only the name value and an array of neighbor nodes.
@@ -15,6 +17,8 @@ class node():
 ```
 
 <img src="./graphs01.png" >
+
+#### Graph
 
 A graph is a data structure that consists of a finite (and possibly mutable) set of vertices or nodes or points, together with a set of unordered pairs of these vertices for an undirected graph or a set of ordered pairs for a directed graph. These pairs are known as edges, arcs, or lines for an undirected graph and as arrows, directed edges, directed arcs, or directed lines for a directed graph.
 

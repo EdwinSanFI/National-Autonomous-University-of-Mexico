@@ -10,50 +10,48 @@ class node:
         self.distance = None
         self.parent = None
 
-    # Agrega un node vecino al node
+    # Add a neighbor to the node
     def add_neighbors(self, node):
-        # Agrega un vecino al node si no existe
+        # Check if the node is already in the list
         if node not in self.neighbors:
             self.neighbors.append(node)
         else:
-            # Si ya existe, se notifica
-            print("El node vecino {} ya existe".format(node.name))
-            print("Por lo tanto no se agrega\n")
+            print("The node {} already in list".format(node.name))
+            print("Therefore is not added")
 
 class graph:
     # Constructor
     def __init__(self):
-        # Diccionario de vertex
+        # Vertex dictionary
         self.vertex = {}
 
-    # Agrega un node al graph
+    # Add a node to the graph
     def add_node(self, name_node):
-        # Agrega un node al graph al diccionario de nodes
         new_node = node(name_node)
-        # Si el node no existe
+        # Check if the node is already in the graph
         if name_node not in self.vertex:
-            # Se agrega al diccionario
+            # Add the node to the graph
             self.vertex[name_node] = new_node
         else:
-            # Si ya existe, se notifica
-            print('El node {} ya existe'.format(name_node))
-            print('Por lo tanto no se agrego el node\n')
+            # If the node is already in the graph, it is not added
+            print('The node {} already exists'.format(name_node))
+            print('Therefore is not added\n')
 
-    # Agrega una edge al graph
+    # Add an edge to the graph
     def add_edge(self, name_node1, name_node2):
-        # Si los nodes existen
+        # If both nodes are in the graph
         if name_node1 in self.vertex and name_node2 in self.vertex:
-            # Obtiene los nodes correspondientes a los names
+            # obtain the nodes
             node1 = self.vertex[name_node1]
             node2 = self.vertex[name_node2]
 
-            # Agrega el node2 como vecino del node1 y viceversa
+            # Add the neighbors
             node1.add_neighbors(node2)
             node2.add_neighbors(node1)
         else:
-            # Si uno de los nodes no existe, se notifica
-            print("No existe uno de los nodes, {} o {}".format(name_node1, name_node2))
-            print("Por lo tanto no se agrego la edge\n")
+            # If one of the nodes is not in the graph
+            print("One of the nodes {} or {} doesnt exist".format(name_node1, name_node2))
+            print("Therefore the edge is not added\n")
 
     # Recorre los nodes del graph a partir del node inicial a traves del algoritmo de anchura
     def breadth_first_search(self, name_node_inicial):

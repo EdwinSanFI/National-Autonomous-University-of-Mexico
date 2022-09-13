@@ -12,6 +12,8 @@ As you can see in the image, the metro map is a graph with nodes and edges. Each
 
 ### Classes
 
+#### Node
+
 The node class has the name of the station, a list of neighbors, the color, the distance and the parent. The color is used to represent the state of the node. The distance is used to represent the distance from the source node. The parent is used to represent the parent node.
 
 ``` python
@@ -27,7 +29,14 @@ class node:
 
 <img src="./metro_graph.png" >
 
-The graph class has a dictionary of nodes. The key is the name of the station and the value is the node. This dictionary will be used to store all the nodes of the graph. 
+The node class has the following methods:
+<ul>
+    <li><code>add_neighbors</code>: Add a neighbor node to the actual node. </li>
+</ul>
+
+#### Graph
+
+The graph class has a dictionary of nodes. The key is the name of the station and the value is the node. This dictionary will be used to store all the nodes of the graph.
 
 ``` python
 class graph:

@@ -1,204 +1,203 @@
-# Nodo con valor e hijos
-class Nodos:
+class node:
     # Constructor
     def __init__(self, val):
-        self.valor = val
-        self.izq = None
-        self.der = None
+        self.value = val
+        self.left = None
+        self.right = None
 
 # Arbol B
-class ArbolB:
+class BTree:
     # Constructor
     def __init__(self):
         # Inicializamos el nodo raiz en None
         self.root = None
-    # Funcion para insertar un nodo
-    def Insertar(self, k, nodo):
+    # Funcion para add un nodo
+    def add(self, k, nodo):
         # Si el nodo raiz no existe
         if self.root == None:
-            # Se crea un nodo raiz con el valor k
-            self.root = Nodos(k)
+            # Se crea un nodo raiz con el value k
+            self.root = node(k)
 
         # Si el nodo raiz existe
         else:
-            # Si el valor es menor que el valor del nodo raiz, se inserta en el subarbol izquierdo
-            if k < nodo.valor:
-                # Si el nodo izquierdo es None (no tiene hijos)
-                if nodo.izq == None:
-                    # Insertamos el valor en el nodo izquierdo
-                    nodo.izq = Nodos(k)
-                # Si el nodo izquierdo tiene hijos
+            # Si el value es menor que el value del nodo raiz, se inserta en el subarbol leftuierdo
+            if k < nodo.value:
+                # Si el nodo leftuierdo es None (no tiene hijos)
+                if nodo.left == None:
+                    # Insertamos el value en el nodo leftuierdo
+                    nodo.left = node(k)
+                # Si el nodo leftuierdo tiene hijos
                 else:
-                    # Llamamos recursivamente a la funcion con el nodo izquierdo
-                    self.Insertar(k, nodo.izq)
-            # Si el valor es mayor que el valor del nodo raiz, se inserta en el subarbol derecho
-            elif k > nodo.valor:
-                # Si el nodo derecho es None (no tiene hijos)
-                if nodo.der == None:
-                    # Insertamos el valor en el nodo derecho
-                    nodo.der = Nodos(k)
-                #Si el nodo derecho tiene hijos
+                    # Llamamos recursivamente a la funcion con el nodo leftuierdo
+                    self.add(k, nodo.left)
+            # Si el value es mayor que el value del nodo raiz, se inserta en el subarbol rightecho
+            elif k > nodo.value:
+                # Si el nodo rightecho es None (no tiene hijos)
+                if nodo.right == None:
+                    # Insertamos el value en el nodo rightecho
+                    nodo.right = node(k)
+                #Si el nodo rightecho tiene hijos
                 else:
-                    # Llamamos recursivamente a la funcion con el nodo derecho
-                    self.Insertar(k, nodo.der)
+                    # Llamamos recursivamente a la funcion con el nodo rightecho
+                    self.add(k, nodo.right)
 
-            # Si el valor ya existe en el arbol
-            elif k == nodo.valor:
-                print(f"ERROR, El valor {k} ya se encuentra en el arbol")
+            # Si el value ya existe en el arbol
+            elif k == nodo.value:
+                print(f"ERROR, El value {k} ya se encuentra en el arbol")
 
-    # Funcion para imprimir el arbol por el metodo InOrden
+    # Funcion para print_tree el arbol por el metodo InOrden
     def InOrden(self, nodo):
         # Si el nodo no es None
         if nodo != None:
-            # Llamamos recursivamente a la funcion con el nodo izquierdo hasta que sea None
-            self.InOrden(nodo.izq)
-            # Imprimimos el valor del nodo
-            print(nodo.valor, end=" ")
-            # Llamamos recursivamente a la funcion con el nodo derecho
-            self.InOrden(nodo.der)
+            # Llamamos recursivamente a la funcion con el nodo leftuierdo hasta que sea None
+            self.InOrden(nodo.left)
+            # Imprimimos el value del nodo
+            print(nodo.value, end=" ")
+            # Llamamos recursivamente a la funcion con el nodo rightecho
+            self.InOrden(nodo.right)
 
-    # Funcion para imprimir el arbol por el metodo PreOrden
+    # Funcion para print_tree el arbol por el metodo PreOrden
     def PreOrden(self, nodo):
         # Si el nodo no es None
         if nodo != None:
-            # Imprimimos el valor del nodo
-            print(nodo.valor, end=" ")
-            # Llamamos recursivamente a la funcion con el nodo izquierdo
-            self.PreOrden(nodo.izq)
-            # Llamamos recursivamente a la funcion con el nodo derecho
-            self.PreOrden(nodo.der)
+            # Imprimimos el value del nodo
+            print(nodo.value, end=" ")
+            # Llamamos recursivamente a la funcion con el nodo leftuierdo
+            self.PreOrden(nodo.left)
+            # Llamamos recursivamente a la funcion con el nodo rightecho
+            self.PreOrden(nodo.right)
 
-    # Funcion para imprimir el arbol por el metodo PostOrden
+    # Funcion para print_tree el arbol por el metodo PostOrden
     def PostOrden(self, nodo):
         # Si el nodo no es None
         if nodo != None:
-            # Llamamos recursivamente a la funcion con el nodo izquierdo
-            self.PostOrden(nodo.izq)
-            # Llamamos recursivamente a la funcion con el nodo derecho
-            self.PostOrden(nodo.der)
-            # Imprimimos el valor del nodo
-            print(nodo.valor, end=" ")
+            # Llamamos recursivamente a la funcion con el nodo leftuierdo
+            self.PostOrden(nodo.left)
+            # Llamamos recursivamente a la funcion con el nodo rightecho
+            self.PostOrden(nodo.right)
+            # Imprimimos el value del nodo
+            print(nodo.value, end=" ")
 
-    # Funcion para buscar un valor en el arbol
-    def Buscar(self, k, nodo):
+    # Funcion para search un value en el arbol
+    def search(self, k, nodo):
         # Si el nodo no es None
         if nodo != None:
-            # Si el valor es menor que el valor del nodo raiz
-            if k < nodo.valor:
-                # Llamamos recursivamente a la funcion con el nodo izquierdo
-                self.Buscar(k, nodo.izq)
-            # Si el valor es mayor que el valor del nodo raiz
-            elif k > nodo.valor:
-                # Llamamos recursivamente a la funcion con el nodo derecho
-                self.Buscar(k, nodo.der)
-            # Si el valor es igual que el valor del nodo raiz
-            elif k == nodo.valor:
+            # Si el value es menor que el value del nodo raiz
+            if k < nodo.value:
+                # Llamamos recursivamente a la funcion con el nodo leftuierdo
+                self.search(k, nodo.left)
+            # Si el value es mayor que el value del nodo raiz
+            elif k > nodo.value:
+                # Llamamos recursivamente a la funcion con el nodo rightecho
+                self.search(k, nodo.right)
+            # Si el value es igual que el value del nodo raiz
+            elif k == nodo.value:
                 print("Existe el " + str(k),"? True")
         # No existe el nodo
         else:
             print("Existe el " + str(k),"? False")
 
     # Funcion para eliminar un nodo
-    def eliminar2(self, k, nodo):
-        # Se guarda en un arreglo los nodos recorridos en el arbol
-        nodos_recorridos =[nodo]
+    def delete2(self, k, nodo):
+        # Se guarda en un arreglo los node recorridos en el arbol
+        node_recorridos =[nodo]
         # Mientras el nodo sea distinto a None
         while nodo != None:
-            # Si el valor es menor que el valor del nodo raiz
-            if k < nodo.valor:
-                # El nodo izquierdo es el nodo actual
-                nodo = nodo.izq
+            # Si el value es menor que el value del nodo raiz
+            if k < nodo.value:
+                # El nodo leftuierdo es el nodo actual
+                nodo = nodo.left
                 # Se agrega al arreglo el nodo actual
-                nodos_recorridos.append(nodo)
-            # Si el valor es mayor que el valor del nodo raiz
-            elif k > nodo.valor:
-                # El nodo derecho es el nodo actual
-                nodo = nodo.der
+                node_recorridos.append(nodo)
+            # Si el value es mayor que el value del nodo raiz
+            elif k > nodo.value:
+                # El nodo rightecho es el nodo actual
+                nodo = nodo.right
                 # Se agrega al arreglo el nodo actual
-                nodos_recorridos.append(nodo)
-            # Si el valor es igual que el valor del nodo raiz
-            elif k == nodo.valor:
+                node_recorridos.append(nodo)
+            # Si el value es igual que el value del nodo raiz
+            elif k == nodo.value:
                 # Si el nodo tiene hijos
-                if nodo.izq != None and nodo.der != None:
-                    # Se obtiene el valor maximo en el subarbol izquierdo
-                    valor_max = self.Maximo(nodo.izq)
-                    # Se elimina el valor maximo en el subarbol izquierdo
-                    self.eliminar2(valor_max,nodo)
-                    # Se actualiza el valor del nodo actual
-                    nodo.valor = valor_max
+                if nodo.left != None and nodo.right != None:
+                    # Se obtiene el value maximum en el subarbol leftuierdo
+                    value_max = self.maximum(nodo.left)
+                    # Se elimina el value maximum en el subarbol leftuierdo
+                    self.delete2(value_max,nodo)
+                    # Se actualiza el value del nodo actual
+                    nodo.value = value_max
 
                 # Si el nodo no tiene hijos
-                elif nodo.izq == None and nodo.der == None:
+                elif nodo.left == None and nodo.right == None:
                     # Se obtiene el penultimo nodo recorrido
-                    nuevo_nodo = nodos_recorridos[-2]
-                    # Si el penultimo nodo tiene hijo izquierdo y es el nodo actual
-                    if nuevo_nodo.izq != None  and nuevo_nodo.izq.valor == nodo.valor:
+                    nuevo_nodo = node_recorridos[-2]
+                    # Si el penultimo nodo tiene hijo leftuierdo y es el nodo actual
+                    if nuevo_nodo.left != None  and nuevo_nodo.left.value == nodo.value:
                         # El penultimo nodo deja de hacer referencia al nodo actual
-                        nuevo_nodo.izq = None
-                    # Si el penultimo nodo tiene hijo derecho y es el nodo actual
+                        nuevo_nodo.left = None
+                    # Si el penultimo nodo tiene hijo rightecho y es el nodo actual
                     else:
                         # El penultimo nodo deja de hacer referencia al nodo actual
-                        nuevo_nodo.der = None
+                        nuevo_nodo.right = None
                     # EL nodo actual es eliminado
                     nodo = None
-                # Tiene hijo izquierdo
-                elif nodo.izq != None:
+                # Tiene hijo leftuierdo
+                elif nodo.left != None:
                     # Se obtiene el penultimo nodo recorrido
-                    nuevo_nodo = nodos_recorridos[-2]
-                    # Si el penultimo nodo tiene hijo izquierdo y es el nodo actual
-                    if nuevo_nodo.izq != None and nuevo_nodo.izq.valor == nodo.valor:
-                        # El hijo izquierdo del penultimo nodo hará referencia al hijo izquierdo del nodo actual
-                        nuevo_nodo.izq = nodo.izq
+                    nuevo_nodo = node_recorridos[-2]
+                    # Si el penultimo nodo tiene hijo leftuierdo y es el nodo actual
+                    if nuevo_nodo.left != None and nuevo_nodo.left.value == nodo.value:
+                        # El hijo leftuierdo del penultimo nodo hará referencia al hijo leftuierdo del nodo actual
+                        nuevo_nodo.left = nodo.left
                     else:
-                        # El hijo derecho del penultimo nodo hará referencia al hijo izquierdo del nodo actual
-                        nuevo_nodo.der = nodo.izq
-                # Tiene hijo derecho
-                elif nodo.der != None:
+                        # El hijo rightecho del penultimo nodo hará referencia al hijo leftuierdo del nodo actual
+                        nuevo_nodo.right = nodo.left
+                # Tiene hijo rightecho
+                elif nodo.right != None:
                     # Se obtiene el penultimo nodo recorrido
-                    nuevo_nodo = nodos_recorridos[-2]
-                    # Si el penultimo nodo tiene hijo derecho y es el nodo actual
-                    if nuevo_nodo.izq != None and nuevo_nodo.izq.valor == nodo.valor:
-                        # El hijo izquierdo del penultimo nodo hará referencia al hijo derecho del nodo actual
-                        nuevo_nodo.izq = nodo.der
+                    nuevo_nodo = node_recorridos[-2]
+                    # Si el penultimo nodo tiene hijo rightecho y es el nodo actual
+                    if nuevo_nodo.left != None and nuevo_nodo.left.value == nodo.value:
+                        # El hijo leftuierdo del penultimo nodo hará referencia al hijo rightecho del nodo actual
+                        nuevo_nodo.left = nodo.right
                     else:
-                        # El hijo derecho del penultimo nodo hará referencia al hijo derecho del nodo actual
-                        nuevo_nodo.der = nodo.der
+                        # El hijo rightecho del penultimo nodo hará referencia al hijo rightecho del nodo actual
+                        nuevo_nodo.right = nodo.right
                 break
             else:
-                print("\nNo se pudo eliminar el valor " + str(k), " porque no existe")
+                print("\nNo se pudo eliminar el value " + str(k), " porque no existe")
 
-    # Obtiene el valor maximo del arbol
-    def Minimo(self, nodo):
+    # Obtiene el value maximum del arbol
+    def minimum(self, nodo):
         # Si el nodo no es None
         if nodo != None:
-            # Si el nodo tiene hijo izquierdo
-            if nodo.izq != None:
-                # Llamamos recursivamente a la funcion con el nodo izquierdo
-                return self.Minimo(nodo.izq)
-            # Si el nodo no tiene hijo izquierdo
+            # Si el nodo tiene hijo leftuierdo
+            if nodo.left != None:
+                # Llamamos recursivamente a la funcion con el nodo leftuierdo
+                return self.minimum(nodo.left)
+            # Si el nodo no tiene hijo leftuierdo
             else:
-                # Retornamos el valor del nodo
-                return nodo.valor
+                # Retornamos el value del nodo
+                return nodo.value
         else:
             return None
 
-    # Obtiene el valor minimo del arbol
-    def Maximo(self, nodo):
+    # Obtiene el value minimum del arbol
+    def maximum(self, nodo):
         # Si el nodo no es None
         if nodo != None:
-            # Si el nodo tiene hijo derecho
-            if nodo.der != None:
-                # Llamamos recursivamente a la funcion con el nodo derecho
-                return self.Maximo(nodo.der)
-            # Si el nodo no tiene hijo derecho
+            # Si el nodo tiene hijo rightecho
+            if nodo.right != None:
+                # Llamamos recursivamente a la funcion con el nodo rightecho
+                return self.maximum(nodo.right)
+            # Si el nodo no tiene hijo rightecho
             else:
-                # Retornamos el valor del nodo
-                return nodo.valor
+                # Retornamos el value del nodo
+                return nodo.value
         else:
             return None
 
     # Imprime el contenido del arbol
-    def Imprimir(self):
+    def print_tree(self):
         print("\n*Imprimiendo el arbol*")
         # Si el nodo raiz no es None (existe)
         if self.root != None:
@@ -234,88 +233,88 @@ class ArbolB:
             while len(cola) > 0:
                 # Sacamos el primer elemento de la cola
                 nodo = cola.pop(0)
-                # Imprimimos el valor del nodo
-                print(nodo.valor, end=" ")
-                # Si el nodo tiene hijo izquierdo
-                if nodo.izq != None:
-                    # Agregamos el hijo izquierdo a la cola
-                    cola.append(nodo.izq)
-                # Si el nodo no tiene hijo izquierdo
-                if nodo.der != None:
-                    # Agregamos el hijo derecho a la cola
-                    cola.append(nodo.der)
+                # Imprimimos el value del nodo
+                print(nodo.value, end=" ")
+                # Si el nodo tiene hijo leftuierdo
+                if nodo.left != None:
+                    # Agregamos el hijo leftuierdo a la cola
+                    cola.append(nodo.left)
+                # Si el nodo no tiene hijo leftuierdo
+                if nodo.right != None:
+                    # Agregamos el hijo rightecho a la cola
+                    cola.append(nodo.right)
 
 # Funcion main
 if __name__ == '__main__':
     # Creamos un arbol
-    arbol = ArbolB()
+    arbol = BTree()
 
-    # Insertamos nodos
-    arbol.Imprimir()
+    # Insertamos node
+    arbol.print_tree()
 
-    # Insertamos nodos
-    arbol.Insertar(8, arbol.root)
-    arbol.Insertar(3, arbol.root)
-    arbol.Insertar(10, arbol.root)
-    arbol.Insertar(1, arbol.root)
-    arbol.Insertar(6, arbol.root)
-    arbol.Insertar(14, arbol.root)
-    arbol.Insertar(4, arbol.root)
-    arbol.Insertar(7, arbol.root)
-    arbol.Insertar(13, arbol.root)
+    # Insertamos node
+    arbol.add(8, arbol.root)
+    arbol.add(3, arbol.root)
+    arbol.add(10, arbol.root)
+    arbol.add(1, arbol.root)
+    arbol.add(6, arbol.root)
+    arbol.add(14, arbol.root)
+    arbol.add(4, arbol.root)
+    arbol.add(7, arbol.root)
+    arbol.add(13, arbol.root)
 
     # Imprimimos el arbol
-    arbol.Imprimir()
+    arbol.print_tree()
 
-    # Inserta valores repetidos
+    # Inserta valuees repetidos
     print("\n")
-    arbol.Insertar(14, arbol.root) # Valor repetido
-    arbol.Insertar(1, arbol.root) # Valordo repetido
+    arbol.add(14, arbol.root) # value repetido
+    arbol.add(1, arbol.root) # valuedo repetido
     print("\n")
 
-    # Obtenemos el maximo y minimo del arbol
-    print("**Metodo maximo y minimo**")
-    print("\nEl valor minimo es: ",arbol.Minimo(arbol.root))
-    print("El valor maximo es: ",arbol.Maximo(arbol.root))
+    # Obtenemos el maximum y minimum del arbol
+    print("**Metodo maximum y minimum**")
+    print("\nEl value minimum es: ",arbol.minimum(arbol.root))
+    print("El value maximum es: ",arbol.maximum(arbol.root))
     print()
 
-    # Buscamos un valor en el arbol
-    print("\n**Metodo buscar**\n")
-    arbol.Buscar(4,arbol.root)
-    arbol.Buscar(8,arbol.root)
-    arbol.Buscar(13,arbol.root)
-    arbol.Buscar(2,arbol.root)
-    arbol.Buscar(15,arbol.root)
+    # Buscamos un value en el arbol
+    print("\n**Metodo search**\n")
+    arbol.search(4,arbol.root)
+    arbol.search(8,arbol.root)
+    arbol.search(13,arbol.root)
+    arbol.search(2,arbol.root)
+    arbol.search(15,arbol.root)
 
-    # Eliminamos un valor del arbol
+    # Eliminamos un value del arbol
     print("\n**Metodo elimniar**\n")
 
     print("\n  -Borrando el 7 (sin hijos)")
-    arbol.eliminar2(7, arbol.root)
-    arbol.Imprimir()
+    arbol.delete2(7, arbol.root)
+    arbol.print_tree()
 
-    print("\n  -Borrando el 10 (con hijo derecho)")
-    arbol.eliminar2(10, arbol.root)
-    arbol.Imprimir()
+    print("\n  -Borrando el 10 (con hijo rightecho)")
+    arbol.delete2(10, arbol.root)
+    arbol.print_tree()
 
-    print("\n  -Borrando el 6 (con hijo izquierdo)")
-    arbol.eliminar2(6, arbol.root)
-    arbol.Imprimir()
+    print("\n  -Borrando el 6 (con hijo leftuierdo)")
+    arbol.delete2(6, arbol.root)
+    arbol.print_tree()
 
     print("\n  -Borrando el 3 (con ambos hijos)")
-    arbol.eliminar2(3, arbol.root)
-    arbol.Imprimir()
+    arbol.delete2(3, arbol.root)
+    arbol.print_tree()
 
     print("\n  -Borrando el 3 (no existe)")
-    arbol.eliminar2(3, arbol.root)
-    arbol.Imprimir()
+    arbol.delete2(3, arbol.root)
+    arbol.print_tree()
 
     print("\n  -Borrando el 8 (raiz, ambos hijos)")
-    arbol.eliminar2(8, arbol.root)
-    arbol.Imprimir()
+    arbol.delete2(8, arbol.root)
+    arbol.print_tree()
 
-    # Insertamos un valor en el arbol
-    arbol.Insertar(100, arbol.root)
-    arbol.Imprimir()
+    # Insertamos un value en el arbol
+    arbol.add(100, arbol.root)
+    arbol.print_tree()
 
     #No pude realizar el print pretty
