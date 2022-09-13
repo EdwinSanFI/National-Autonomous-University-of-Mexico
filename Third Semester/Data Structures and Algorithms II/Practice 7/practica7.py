@@ -1,204 +1,204 @@
 import sys
 import metro
 
-class Nodo:
+class node:
     # Constructor
-    def __init__(self, nombre):
-        self.nombre = nombre
-        self.vecinos = []
+    def __init__(self, name):
+        self.name = name
+        self.neighbors = []
         self.color = None
-        self.distancia = None
-        self.padre = None
+        self.distance = None
+        self.parent = None
 
-    # Agrega un nodo vecino al nodo
-    def agregar_vecinos(self, nodo):
-        # Agrega un vecino al nodo si no existe
-        if nodo not in self.vecinos:
-            self.vecinos.append(nodo)
+    # Agrega un node vecino al node
+    def add_neighbors(self, node):
+        # Agrega un vecino al node si no existe
+        if node not in self.neighbors:
+            self.neighbors.append(node)
         else:
             # Si ya existe, se notifica
-            print("El nodo vecino {} ya existe".format(nodo.nombre))
+            print("El node vecino {} ya existe".format(node.name))
             print("Por lo tanto no se agrega\n")
 
-class Grafo:
+class graph:
     # Constructor
     def __init__(self):
-        # Diccionario de vertices
-        self.vertices = {}
+        # Diccionario de vertex
+        self.vertex = {}
 
-    # Agrega un nodo al grafo
-    def agregar_nodo(self, nombre_nodo):
-        # Agrega un nodo al grafo al diccionario de nodos
-        nuevo_nodo = Nodo(nombre_nodo)
-        # Si el nodo no existe
-        if nombre_nodo not in self.vertices:
+    # Agrega un node al graph
+    def add_node(self, name_node):
+        # Agrega un node al graph al diccionario de nodes
+        new_node = node(name_node)
+        # Si el node no existe
+        if name_node not in self.vertex:
             # Se agrega al diccionario
-            self.vertices[nombre_nodo] = nuevo_nodo
+            self.vertex[name_node] = new_node
         else:
             # Si ya existe, se notifica
-            print('El nodo {} ya existe'.format(nombre_nodo))
-            print('Por lo tanto no se agrego el nodo\n')
+            print('El node {} ya existe'.format(name_node))
+            print('Por lo tanto no se agrego el node\n')
 
-    # Agrega una arista al grafo
-    def agregar_arista(self, nombre_nodo1, nombre_nodo2):
-        # Si los nodos existen
-        if nombre_nodo1 in self.vertices and nombre_nodo2 in self.vertices:
-            # Obtiene los nodos correspondientes a los nombres
-            nodo1 = self.vertices[nombre_nodo1]
-            nodo2 = self.vertices[nombre_nodo2]
+    # Agrega una edge al graph
+    def add_edge(self, name_node1, name_node2):
+        # Si los nodes existen
+        if name_node1 in self.vertex and name_node2 in self.vertex:
+            # Obtiene los nodes correspondientes a los names
+            node1 = self.vertex[name_node1]
+            node2 = self.vertex[name_node2]
 
-            # Agrega el nodo2 como vecino del nodo1 y viceversa
-            nodo1.agregar_vecinos(nodo2)
-            nodo2.agregar_vecinos(nodo1)
+            # Agrega el node2 como vecino del node1 y viceversa
+            node1.add_neighbors(node2)
+            node2.add_neighbors(node1)
         else:
-            # Si uno de los nodos no existe, se notifica
-            print("No existe uno de los nodos, {} o {}".format(nombre_nodo1, nombre_nodo2))
-            print("Por lo tanto no se agrego la arista\n")
+            # Si uno de los nodes no existe, se notifica
+            print("No existe uno de los nodes, {} o {}".format(name_node1, name_node2))
+            print("Por lo tanto no se agrego la edge\n")
 
-    # Recorre los nodos del grafo a partir del nodo inicial a traves del algoritmo de anchura
-    def breadth_first_search(self, nombre_nodo_inicial):
-        # Obtiene el nodo inicial
-        nodo_s = self.vertices[nombre_nodo_inicial]
-        # Inicializa todos los nodos como no visitados
-        for unidad in self.vertices.values():
+    # Recorre los nodes del graph a partir del node inicial a traves del algoritmo de anchura
+    def breadth_first_search(self, name_node_inicial):
+        # Obtiene el node inicial
+        node_s = self.vertex[name_node_inicial]
+        # Inicializa todos los nodes como no visitados
+        for unidad in self.vertex.values():
             unidad.color = 'white'
-            unidad.distancia = sys.maxsize
-            unidad.padre = None
+            unidad.distance = sys.maxsize
+            unidad.parent = None
 
-        # Nodo inicial tiene distancia 0 y cambia de color a gris
-        nodo_s.color = 'Grey'
-        nodo_s.distancia = 0
+        # node inicial tiene distance 0 y cambia de color a gris
+        node_s.color = 'Grey'
+        node_s.distance = 0
 
-        # Cola de nodos
+        # Cola de nodes
         queue = []
 
-        # Encola el nodo inicial
-        self.encolar(queue, nodo_s)
+        # Encola el node inicial
+        self.encolar(queue, node_s)
         # Mientras la cola no este vacia
         while(len(queue)>0):
-            # Desencola el nodo actual y se guarda el nodo
+            # Desencola el node actual y se guarda el node
             unidad = self.desencolar(queue)
-            # Recorre los vecinos del nodo actual
-            for vertice in unidad.vecinos:
+            # Recorre los neighbors del node actual
+            for vertice in unidad.neighbors:
                 # Si el vecino no ha sido visitado
                 if vertice.color == 'white':
                     # Cambia el color del vecino a gris
                     vertice.color = 'Grey'
-                    # Cambia la distancia del vecino a la distancia del nodo actual + 1
-                    vertice.distancia += 1
-                    # Cambia el padre del vecino al nodo actual
-                    vertice.padre = unidad
+                    # Cambia la distance del vecino a la distance del node actual + 1
+                    vertice.distance += 1
+                    # Cambia el parent del vecino al node actual
+                    vertice.parent = unidad
 
                     # Encola el vecino
                     self.encolar(queue, vertice)
 
-            # Cambia el color del nodo actual a negro despues de recorrer sus vecinos
+            # Cambia el color del node actual a negro despues de recorrer sus neighbors
             unidad.colors = 'Black'
 
-    # Encola un nodo en la cola
-    def encolar(self, queue, nodo_s):
-        # Agrega el nodo al final de la cola
-        queue.append(nodo_s)
+    # Encola un node en la cola
+    def encolar(self, queue, node_s):
+        # Agrega el node al final de la cola
+        queue.append(node_s)
 
-    # Desencola un nodo de la cola
+    # Desencola un node de la cola
     def desencolar(self, queue):
         # ELimina el primer elemento de la cola y lo retorna
         return queue.pop(0)
 
-    # Recorre los nodos del grafo a partir del nodo inicial a traves del algoritmo de profundidad
-    def depth_first_search(self, nombre_nodo_inicial):
-        # Recorre todos los nodos del grafo y los inicializa como no visitados
-        for unidad in self.vertices.values():
+    # Recorre los nodes del graph a partir del node inicial a traves del algoritmo de profundidad
+    def depth_first_search(self, name_node_inicial):
+        # Recorre todos los nodes del graph y los inicializa como no visitados
+        for unidad in self.vertex.values():
             unidad.color = 'white'
-            unidad.padre = None
+            unidad.parent = None
 
-        # Obtiene el nodo inicial
-        nodo_s = self.vertices[nombre_nodo_inicial]
-        # Llama a la funcion dfs_visitar con el nodo inicial
-        self.dfs_visitar(nodo_s)
+        # Obtiene el node inicial
+        node_s = self.vertex[name_node_inicial]
+        # Llama a la funcion dfs_visitar con el node inicial
+        self.dfs_visitar(node_s)
 
-    # Recorre el grafo a traves del algoritmo de profundidad
-    def dfs_visitar(self, nodo_s):
-        # Aumenta la distancia del nodo actual en 1
-        nodo_s.distancia += 1
-        # Cambia el color del nodo a gris
-        nodo_s.color = 'Grey'
-        # Recorre los vecinos del nodo actual
-        for unidad in nodo_s.vecinos:
+    # Recorre el graph a traves del algoritmo de profundidad
+    def dfs_visitar(self, node_s):
+        # Aumenta la distance del node actual en 1
+        node_s.distance += 1
+        # Cambia el color del node a gris
+        node_s.color = 'Grey'
+        # Recorre los neighbors del node actual
+        for unidad in node_s.neighbors:
             # Si el vecino no ha sido visitado
             if unidad.color == 'white':
-                # Cambia el padre del vecino al nodo actual
-                unidad.padre = nodo_s
+                # Cambia el parent del vecino al node actual
+                unidad.parent = node_s
                 # Llama a la funcion dfs_visitar con el vecino
                 self.dfs_visitar(unidad)
-        # Cambia el color del nodo actual a negro
-        nodo_s.color = 'Black'
+        # Cambia el color del node actual a negro
+        node_s.color = 'Black'
 
-    # Guarda el camino mas corto entre dos vertices con el algoritmo de anchura
-    def encontrar_camino_bfs(self, nombre_nodo_inicial, nombre_nodo_final):
-        # Guarda el nombre de los vertices en el orden para desplazarse
-        # Entre el nodo inicial y el final
+    # Guarda el path mas corto entre dos vertex con el algoritmo de anchura
+    def encontrar_path_bfs(self, name_node_inicial, name_node_final):
+        # Guarda el name de los vertex en el orden para desplazarse
+        # Entre el node inicial y el final
 
-        self.breadth_first_search(nombre_nodo_inicial)
-        # Lista que guarda los nombres de los vertices en el orden en que se visitaron
-        camino = []
-        # Obtiene el nodo final
-        nodo_s = self.vertices[nombre_nodo_final]
-        # Mientras el nodo final no sea el nodo inicial
-        while nodo_s.padre is not None:
-            # Agrega el nombre del nodo al final de la lista
-            camino.append(nodo_s.nombre)
-            # Cambia el nodo actual al padre del nodo actual
-            nodo_s = nodo_s.padre
-        # Agrega el nombre del nodo inicial al final de la lista
-        camino.append(nodo_s.nombre)
-        # Se invierte la lista para que el primer elemento sea el nodo inicial
-        camino.reverse()
-        # Retorna la lista de nombres de los vertices
-        return camino
+        self.breadth_first_search(name_node_inicial)
+        # Lista que guarda los names de los vertex en el orden en que se visitaron
+        path = []
+        # Obtiene el node final
+        node_s = self.vertex[name_node_final]
+        # Mientras el node final no sea el node inicial
+        while node_s.parent is not None:
+            # Agrega el name del node al final de la lista
+            path.append(node_s.name)
+            # Cambia el node actual al parent del node actual
+            node_s = node_s.parent
+        # Agrega el name del node inicial al final de la lista
+        path.append(node_s.name)
+        # Se invierte la lista para que el primer elemento sea el node inicial
+        path.reverse()
+        # Retorna la lista de names de los vertex
+        return path
 
-    # Guarda el camino mas corto entre dos vertices con el metodo de profundidad
-    def encontrar_camino_dfs(self, nombre_nodo_inicial, nombre_nodo_final):
-        # Guarda el nombre de los vertices en el orden para desplazarse
-        # Entre el nodo inicial y el final
+    # Guarda el path mas corto entre dos vertex con el metodo de profundidad
+    def encontrar_path_dfs(self, name_node_inicial, name_node_final):
+        # Guarda el name de los vertex en el orden para desplazarse
+        # Entre el node inicial y el final
 
-        self.depth_first_search(nombre_nodo_inicial)
-        # Lista que guarda los nombres de los vertices en el orden en que se visitaron
-        camino = []
-        # Obtiene el nodo final
-        nodo_s = self.vertices[nombre_nodo_final]
-        # Mientras el nodo final no sea el nodo inicial
-        while nodo_s.padre is not None:
-            # Agrega el nombre del nodo al final de la lista
-            camino.append(nodo_s.nombre)
-            # Cambia el nodo actual al padre del nodo actual
-            nodo_s = nodo_s.padre
-        # Agrega el nombre del nodo inicial al final de la lista
-        camino.append(nodo_s.nombre)
-        # Se invierte la lista para que el primer elemento sea el nodo inicial
-        camino.reverse()
-        # Retorna la lista de nombres de los vertices
-        return camino
+        self.depth_first_search(name_node_inicial)
+        # Lista que guarda los names de los vertex en el orden en que se visitaron
+        path = []
+        # Obtiene el node final
+        node_s = self.vertex[name_node_final]
+        # Mientras el node final no sea el node inicial
+        while node_s.parent is not None:
+            # Agrega el name del node al final de la lista
+            path.append(node_s.name)
+            # Cambia el node actual al parent del node actual
+            node_s = node_s.parent
+        # Agrega el name del node inicial al final de la lista
+        path.append(node_s.name)
+        # Se invierte la lista para que el primer elemento sea el node inicial
+        path.reverse()
+        # Retorna la lista de names de los vertex
+        return path
 
-    # Imprime el nombre de los vertices en el orden en que se visitaron
-    def imprimir_camino(self, camino):
-        print("Camino:")
-        camino = " -> ".join(camino)
-        print(camino)
+    # Imprime el name de los vertex en el orden en que se visitaron
+    def imprimir_path(self, path):
+        print("path:")
+        path = " -> ".join(path)
+        print(path)
 
-# Crea un grafo con los datos del archivo Metro.py
+# Crea un graph con los datos del archivo Metro.py
 def run():
-    # Crea un grafo
-    grafo = Grafo()
-    # Agrega los vertices al grafo
+    # Crea un graph
+    graph = graph()
+    # Agrega los vertex al graph
     # Por cada linea del metro.py
     for linea in metro.lineas:
         # Por cada estacion de la linea
         for parada in linea:
             # Agrega el vertice
-            grafo.agregar_nodo(parada)
+            graph.add_node(parada)
 
-    # Agrega las aristas al grafo
+    # Agrega las edges al graph
     i = 0
     # Por cada linea del metro.py
     for linea in metro.lineas:
@@ -206,110 +206,110 @@ def run():
         for parada in linea:
             # Si la estacion no es la ultima de la linea
             if i != len(linea) - 1:
-                # Agrega la arista
+                # Agrega la edge
                 i+=1
                 # Enlaza cada estacion con la siguiente
                 # Conectando toda la linea
-                grafo.agregar_arista(parada, linea[i])
+                graph.add_edge(parada, linea[i])
         # Reinicia el contador al iniciar con la linea siguiente
         i = 0
 
     # Ejemplo de error
-    grafo.agregar_arista('San Antonio', 'Mixcoac')
-    grafo.agregar_arista('S4n Ant1ni0', 'Mixcoac')
+    graph.add_edge('San Antonio', 'Mixcoac')
+    graph.add_edge('S4n Ant1ni0', 'Mixcoac')
 
-    busqueda0(grafo)
-    busqueda1(grafo)
-    busqueda2(grafo)
-    busqueda3(grafo)
+    busqueda0(graph)
+    busqueda1(graph)
+    busqueda2(graph)
+    busqueda3(graph)
     # print('Hola Mundo')
 
-def busqueda0(grafo):
-    nodo1 = "San Antonio"
-    nodo2 = "General Anaya"
-    print("**{} -> {}**".format(nodo1, nodo2))
+def busqueda0(graph):
+    node1 = "San Antonio"
+    node2 = "General Anaya"
+    print("**{} -> {}**".format(node1, node2))
 
-    # Imprime el camino a recorrer a traves del algoritmo de bfs
+    # Imprime el path a recorrer a traves del algoritmo de bfs
     print("\n-----\nBreadth First Search\n")
-    # Obtiene el camino a recorrer desde la estacion inicial hasta la final
-    camino = grafo.encontrar_camino_bfs(nodo1, nodo2)
-    print("Numero de estaciones: ", len(camino))
-    # Imprime el camino
-    grafo.imprimir_camino(camino)
+    # Obtiene el path a recorrer desde la estacion inicial hasta la final
+    path = graph.encontrar_path_bfs(node1, node2)
+    print("Numero de estaciones: ", len(path))
+    # Imprime el path
+    graph.imprimir_path(path)
 
-    # Imprime el camino a recorrer a traves del algoritmo de dfs
+    # Imprime el path a recorrer a traves del algoritmo de dfs
     print("\n-----\nDepth First Search\n")
-    # Obtiene el camino a recorrer desde la estacion inicial hasta la final
-    camino2 = grafo.encontrar_camino_dfs(nodo1, nodo2)
-    print("Numero de estaciones: " + str(len(camino2)))
-    # Imprime el camino
-    grafo.imprimir_camino(camino2)
+    # Obtiene el path a recorrer desde la estacion inicial hasta la final
+    path2 = graph.encontrar_path_dfs(node1, node2)
+    print("Numero de estaciones: " + str(len(path2)))
+    # Imprime el path
+    graph.imprimir_path(path2)
     print("\n")
 
-def busqueda1(grafo):
-    nodo1 = "Aquiles Serdán"
-    nodo2 = "Iztapalapa"
-    print("**{} -> {}**".format(nodo1, nodo2))
+def busqueda1(graph):
+    node1 = "Aquiles Serdán"
+    node2 = "Iztapalapa"
+    print("**{} -> {}**".format(node1, node2))
 
-    # Imprime el camino a recorrer a traves del algoritmo de bfs
+    # Imprime el path a recorrer a traves del algoritmo de bfs
     print("\n-----\nBreadth First Search\n")
-    # Obtiene el camino a recorrer desde la estacion inicial hasta la final
-    camino = grafo.encontrar_camino_bfs(nodo1, nodo2)
-    print("Numero de estaciones: ", len(camino))
-    # Imprime el camino
-    grafo.imprimir_camino(camino)
+    # Obtiene el path a recorrer desde la estacion inicial hasta la final
+    path = graph.encontrar_path_bfs(node1, node2)
+    print("Numero de estaciones: ", len(path))
+    # Imprime el path
+    graph.imprimir_path(path)
 
-    # Imprime el camino a recorrer a traves del algoritmo de dfs
+    # Imprime el path a recorrer a traves del algoritmo de dfs
     print("\n-----\nDepth First Search\n")
-    # Obtiene el camino a recorrer desde la estacion inicial hasta la final
-    camino2 = grafo.encontrar_camino_dfs(nodo1, nodo2)
-    print("Numero de estaciones: " + str(len(camino2)))
-    # Imprime el camino
-    grafo.imprimir_camino(camino2)
+    # Obtiene el path a recorrer desde la estacion inicial hasta la final
+    path2 = graph.encontrar_path_dfs(node1, node2)
+    print("Numero de estaciones: " + str(len(path2)))
+    # Imprime el path
+    graph.imprimir_path(path2)
     print("\n")
 
-def busqueda2(grafo):
-    nodo1 = "San Antonio"
-    nodo2 = "Aragón"
-    print("**{} -> {}**".format(nodo1, nodo2))
+def busqueda2(graph):
+    node1 = "San Antonio"
+    node2 = "Aragón"
+    print("**{} -> {}**".format(node1, node2))
 
-    # Imprime el camino a recorrer a traves del algoritmo de bfs
+    # Imprime el path a recorrer a traves del algoritmo de bfs
     print("\n-----\nBreadth First Search\n")
-    # Obtiene el camino a recorrer desde la estacion inicial hasta la final
-    camino = grafo.encontrar_camino_bfs(nodo1, nodo2)
-    print("Numero de estaciones: ", len(camino))
-    # Imprime el camino
-    grafo.imprimir_camino(camino)
+    # Obtiene el path a recorrer desde la estacion inicial hasta la final
+    path = graph.encontrar_path_bfs(node1, node2)
+    print("Numero de estaciones: ", len(path))
+    # Imprime el path
+    graph.imprimir_path(path)
 
-    # Imprime el camino a recorrer a traves del algoritmo de dfs
+    # Imprime el path a recorrer a traves del algoritmo de dfs
     print("\n-----\nDepth First Search\n")
-    # Obtiene el camino a recorrer desde la estacion inicial hasta la final
-    camino2 = grafo.encontrar_camino_dfs(nodo1, nodo2)
-    print("Numero de estaciones: " + str(len(camino2)))
-    # Imprime el camino
-    grafo.imprimir_camino(camino2)
+    # Obtiene el path a recorrer desde la estacion inicial hasta la final
+    path2 = graph.encontrar_path_dfs(node1, node2)
+    print("Numero de estaciones: " + str(len(path2)))
+    # Imprime el path
+    graph.imprimir_path(path2)
     print("\n")
 
-def busqueda3(grafo):
-    nodo1 = "Vallejo"
-    nodo2 = "Insurgentes"
-    print("**{} -> {}**".format(nodo1, nodo2))
+def busqueda3(graph):
+    node1 = "Vallejo"
+    node2 = "Insurgentes"
+    print("**{} -> {}**".format(node1, node2))
 
-    # Imprime el camino a recorrer a traves del algoritmo de bfs
+    # Imprime el path a recorrer a traves del algoritmo de bfs
     print("\n-----\nBreadth First Search\n")
-    # Obtiene el camino a recorrer desde la estacion inicial hasta la final
-    camino = grafo.encontrar_camino_bfs(nodo1, nodo2)
-    print("Numero de estaciones: ", len(camino))
-    # Imprime el camino
-    grafo.imprimir_camino(camino)
+    # Obtiene el path a recorrer desde la estacion inicial hasta la final
+    path = graph.encontrar_path_bfs(node1, node2)
+    print("Numero de estaciones: ", len(path))
+    # Imprime el path
+    graph.imprimir_path(path)
 
-    # Imprime el camino a recorrer a traves del algoritmo de dfs
+    # Imprime el path a recorrer a traves del algoritmo de dfs
     print("\n-----\nDepth First Search\n")
-    # Obtiene el camino a recorrer desde la estacion inicial hasta la final
-    camino2 = grafo.encontrar_camino_dfs(nodo1, nodo2)
-    print("Numero de estaciones: " + str(len(camino2)))
-    # Imprime el camino
-    grafo.imprimir_camino(camino2)
+    # Obtiene el path a recorrer desde la estacion inicial hasta la final
+    path2 = graph.encontrar_path_dfs(node1, node2)
+    print("Numero de estaciones: " + str(len(path2)))
+    # Imprime el path
+    graph.imprimir_path(path2)
     print("\n")
 
 # Metodo principal

@@ -16,9 +16,9 @@ class grafo():
         self.vertex = {}
 
     def add_node(self, node_name):
-        new_node = node(node_name)
         if node_name not in self.vertex:
             # Is added to the dictionary
+            new_node = node(node_name)
             self.vertex[node_name] = new_node
         else:
             # If the node already exists is not added
@@ -36,11 +36,11 @@ class grafo():
             print("No existe uno de los nodes, {} o {}".format(node_name1, node_name2))
             print("Por lo tanto no se agrego la arista\n")
 
-    def imprimir(self):
+    def print_graph(self):
         for n in self.vertex.keys():
             node = self.vertex[n]
             neighbor = node.neighbor
-            print("Grafo: ",node.name)
+            print("Graph: ",node.name)
             for v in neighbor:
                 print(" neighbor: ", v.name)
             print("")
@@ -70,10 +70,10 @@ def run():
     g.add_edge(5, 6)
 
     # The graph is printed
-    g.imprimir()
+    g.print_graph()
 
     # Error cases
-    print("\nCasos de error\n")
+    print("\nError cases\n")
     # Add a node that already exists
     print("Agregar un node que ya existe (0)")
     g.add_node(0)
