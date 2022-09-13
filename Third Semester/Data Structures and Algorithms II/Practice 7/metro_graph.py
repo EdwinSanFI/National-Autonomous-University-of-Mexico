@@ -73,11 +73,11 @@ class graph:
         queue = []
 
         # Encola el node inicial
-        self.encolar(queue, node_s)
+        self.enqueue(queue, node_s)
         # Mientras la cola no este vacia
         while(len(queue)>0):
             # Desencola el node actual y se guarda el node
-            unidad = self.desencolar(queue)
+            unidad = self.desqueue(queue)
             # Recorre los neighbors del node actual
             for vertice in unidad.neighbors:
                 # Si el vecino no ha sido visitado
@@ -90,18 +90,18 @@ class graph:
                     vertice.parent = unidad
 
                     # Encola el vecino
-                    self.encolar(queue, vertice)
+                    self.enqueue(queue, vertice)
 
             # Cambia el color del node actual a negro despues de recorrer sus neighbors
             unidad.colors = 'Black'
 
     # Encola un node en la cola
-    def encolar(self, queue, node_s):
+    def enqueue(self, queue, node_s):
         # Agrega el node al final de la cola
         queue.append(node_s)
 
     # Desencola un node de la cola
-    def desencolar(self, queue):
+    def desqueue(self, queue):
         # ELimina el primer elemento de la cola y lo retorna
         return queue.pop(0)
 
@@ -114,11 +114,11 @@ class graph:
 
         # Obtiene el node inicial
         node_s = self.vertex[name_node_inicial]
-        # Llama a la funcion dfs_visitar con el node inicial
-        self.dfs_visitar(node_s)
+        # Llama a la funcion dfs_visit con el node inicial
+        self.dfs_visit(node_s)
 
     # Recorre el graph a traves del algoritmo de profundidad
-    def dfs_visitar(self, node_s):
+    def dfs_visit(self, node_s):
         # Aumenta la distance del node actual en 1
         node_s.distance += 1
         # Cambia el color del node a gris
@@ -129,13 +129,13 @@ class graph:
             if unidad.color == 'white':
                 # Cambia el parent del vecino al node actual
                 unidad.parent = node_s
-                # Llama a la funcion dfs_visitar con el vecino
-                self.dfs_visitar(unidad)
+                # Llama a la funcion dfs_visit con el vecino
+                self.dfs_visit(unidad)
         # Cambia el color del node actual a negro
         node_s.color = 'Black'
 
     # Guarda el path mas corto entre dos vertex con el algoritmo de anchura
-    def encontrar_path_bfs(self, name_node_inicial, name_node_final):
+    def find_path_bfs(self, name_node_inicial, name_node_final):
         # Guarda el name de los vertex en el orden para desplazarse
         # Entre el node inicial y el final
 
@@ -158,7 +158,7 @@ class graph:
         return path
 
     # Guarda el path mas corto entre dos vertex con el metodo de profundidad
-    def encontrar_path_dfs(self, name_node_inicial, name_node_final):
+    def find_path_dfs(self, name_node_inicial, name_node_final):
         # Guarda el name de los vertex en el orden para desplazarse
         # Entre el node inicial y el final
 
@@ -181,7 +181,7 @@ class graph:
         return path
 
     # Imprime el name de los vertex en el orden en que se visitaron
-    def imprimir_path(self, path):
+    def print_path(self, path):
         print("path:")
         path = " -> ".join(path)
         print(path)
@@ -232,18 +232,18 @@ def busqueda0(graph):
     # Imprime el path a recorrer a traves del algoritmo de bfs
     print("\n-----\nBreadth First Search\n")
     # Obtiene el path a recorrer desde la estacion inicial hasta la final
-    path = graph.encontrar_path_bfs(node1, node2)
+    path = graph.find_path_bfs(node1, node2)
     print("Numero de estaciones: ", len(path))
     # Imprime el path
-    graph.imprimir_path(path)
+    graph.print_path(path)
 
     # Imprime el path a recorrer a traves del algoritmo de dfs
     print("\n-----\nDepth First Search\n")
     # Obtiene el path a recorrer desde la estacion inicial hasta la final
-    path2 = graph.encontrar_path_dfs(node1, node2)
+    path2 = graph.find_path_dfs(node1, node2)
     print("Numero de estaciones: " + str(len(path2)))
     # Imprime el path
-    graph.imprimir_path(path2)
+    graph.print_path(path2)
     print("\n")
 
 def busqueda1(graph):
@@ -254,18 +254,18 @@ def busqueda1(graph):
     # Imprime el path a recorrer a traves del algoritmo de bfs
     print("\n-----\nBreadth First Search\n")
     # Obtiene el path a recorrer desde la estacion inicial hasta la final
-    path = graph.encontrar_path_bfs(node1, node2)
+    path = graph.find_path_bfs(node1, node2)
     print("Numero de estaciones: ", len(path))
     # Imprime el path
-    graph.imprimir_path(path)
+    graph.print_path(path)
 
     # Imprime el path a recorrer a traves del algoritmo de dfs
     print("\n-----\nDepth First Search\n")
     # Obtiene el path a recorrer desde la estacion inicial hasta la final
-    path2 = graph.encontrar_path_dfs(node1, node2)
+    path2 = graph.find_path_dfs(node1, node2)
     print("Numero de estaciones: " + str(len(path2)))
     # Imprime el path
-    graph.imprimir_path(path2)
+    graph.print_path(path2)
     print("\n")
 
 def busqueda2(graph):
@@ -276,18 +276,18 @@ def busqueda2(graph):
     # Imprime el path a recorrer a traves del algoritmo de bfs
     print("\n-----\nBreadth First Search\n")
     # Obtiene el path a recorrer desde la estacion inicial hasta la final
-    path = graph.encontrar_path_bfs(node1, node2)
+    path = graph.find_path_bfs(node1, node2)
     print("Numero de estaciones: ", len(path))
     # Imprime el path
-    graph.imprimir_path(path)
+    graph.print_path(path)
 
     # Imprime el path a recorrer a traves del algoritmo de dfs
     print("\n-----\nDepth First Search\n")
     # Obtiene el path a recorrer desde la estacion inicial hasta la final
-    path2 = graph.encontrar_path_dfs(node1, node2)
+    path2 = graph.find_path_dfs(node1, node2)
     print("Numero de estaciones: " + str(len(path2)))
     # Imprime el path
-    graph.imprimir_path(path2)
+    graph.print_path(path2)
     print("\n")
 
 def busqueda3(graph):
@@ -298,18 +298,18 @@ def busqueda3(graph):
     # Imprime el path a recorrer a traves del algoritmo de bfs
     print("\n-----\nBreadth First Search\n")
     # Obtiene el path a recorrer desde la estacion inicial hasta la final
-    path = graph.encontrar_path_bfs(node1, node2)
+    path = graph.find_path_bfs(node1, node2)
     print("Numero de estaciones: ", len(path))
     # Imprime el path
-    graph.imprimir_path(path)
+    graph.print_path(path)
 
     # Imprime el path a recorrer a traves del algoritmo de dfs
     print("\n-----\nDepth First Search\n")
     # Obtiene el path a recorrer desde la estacion inicial hasta la final
-    path2 = graph.encontrar_path_dfs(node1, node2)
+    path2 = graph.find_path_dfs(node1, node2)
     print("Numero de estaciones: " + str(len(path2)))
     # Imprime el path
-    graph.imprimir_path(path2)
+    graph.print_path(path2)
     print("\n")
 
 # Metodo principal

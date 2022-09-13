@@ -1,4 +1,5 @@
 ## Graphs
+### Classes
 
 A node is a basic data structure which contain data and one or more links to other nodes. Nodes can be used to represent a graph, tree structure or a linked list.
 
