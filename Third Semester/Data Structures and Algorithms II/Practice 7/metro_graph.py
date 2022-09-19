@@ -53,62 +53,61 @@ class graph:
             print("One of the nodes {} or {} doesnt exist".format(name_node1, name_node2))
             print("Therefore the edge is not added\n")
 
-    # Recorre los nodes del graph a partir del node inicial a traves del algoritmo de anchura
+    # Use the breadth first search algorithm to find the shortest path
     def breadth_first_search(self, name_node_inicial):
-        # Obtiene el node inicial
+        # Obtain the inicial node
         node_s = self.vertex[name_node_inicial]
-        # Inicializa todos los nodes como no visitados
-        for unidad in self.vertex.values():
-            unidad.color = 'white'
-            unidad.distance = sys.maxsize
-            unidad.parent = None
+        # Initialize the distance of the inicial node
+        for unity in self.vertex.values():
+            unity.color = 'white'
+            unity.distance = sys.maxsize
+            unity.parent = None
 
-        # node inicial tiene distance 0 y cambia de color a gris
+        # Initialize the distance of the inicial node
         node_s.color = 'Grey'
         node_s.distance = 0
 
-        # Cola de nodes
+        # Node queue
         queue = []
 
-        # Encola el node inicial
+        # Enqueue the inicial node
         self.enqueue(queue, node_s)
-        # Mientras la cola no este vacia
+
+        # While the queue is not empty
         while(len(queue)>0):
-            # Desencola el node actual y se guarda el node
-            unidad = self.desqueue(queue)
-            # Recorre los neighbors del node actual
-            for vertice in unidad.neighbors:
-                # Si el vecino no ha sido visitado
-                if vertice.color == 'white':
-                    # Cambia el color del vecino a gris
-                    vertice.color = 'Grey'
-                    # Cambia la distance del vecino a la distance del node actual + 1
-                    vertice.distance += 1
-                    # Cambia el parent del vecino al node actual
-                    vertice.parent = unidad
+            # Dequeue the first node
+            unity = self.desqueue(queue)
+            # Go through the neighbors of the node
+            for vertex in unity.neighbors:
+                # If the neighbor is not visited
+                if vertex.color == 'white':
+                    # Change the color of the neighbor to gray
+                    vertex.color = 'Grey'
+                    # Change the distance of the neighbor
+                    vertex.distance += 1
+                    # Change the parent of the neighbor
+                    vertex.parent = unity
 
                     # Encola el vecino
-                    self.enqueue(queue, vertice)
+                    self.enqueue(queue, vertex)
 
-            # Cambia el color del node actual a negro despues de recorrer sus neighbors
-            unidad.colors = 'Black'
+            # Change the color of the node to black (visited)
+            unity.color = 'Black'
 
-    # Encola un node en la cola
     def enqueue(self, queue, node_s):
-        # Agrega el node al final de la cola
+        # Add the node to the queue
         queue.append(node_s)
 
-    # Desencola un node de la cola
     def desqueue(self, queue):
-        # ELimina el primer elemento de la cola y lo retorna
+        # Delete the first node of the queue and return it
         return queue.pop(0)
 
-    # Recorre los nodes del graph a partir del node inicial a traves del algoritmo de profundidad
+    # Use the depth first search algorithm to find the shortest path
     def depth_first_search(self, name_node_inicial):
         # Recorre todos los nodes del graph y los inicializa como no visitados
-        for unidad in self.vertex.values():
-            unidad.color = 'white'
-            unidad.parent = None
+        for unity in self.vertex.values():
+            unity.color = 'white'
+            unity.parent = None
 
         # Obtiene el node inicial
         node_s = self.vertex[name_node_inicial]
@@ -122,13 +121,13 @@ class graph:
         # Cambia el color del node a gris
         node_s.color = 'Grey'
         # Recorre los neighbors del node actual
-        for unidad in node_s.neighbors:
+        for unity in node_s.neighbors:
             # Si el vecino no ha sido visitado
-            if unidad.color == 'white':
+            if unity.color == 'white':
                 # Cambia el parent del vecino al node actual
-                unidad.parent = node_s
+                unity.parent = node_s
                 # Llama a la funcion dfs_visit con el vecino
-                self.dfs_visit(unidad)
+                self.dfs_visit(unity)
         # Cambia el color del node actual a negro
         node_s.color = 'Black'
 
@@ -193,7 +192,7 @@ def run():
     for linea in metro.lineas:
         # Por cada estacion de la linea
         for parada in linea:
-            # Agrega el vertice
+            # Agrega el vertex
             graph.add_node(parada)
 
     # Agrega las edges al graph
