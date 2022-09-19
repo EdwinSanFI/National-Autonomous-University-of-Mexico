@@ -11,8 +11,8 @@ class BTree:
     def __init__(self):
         # Inicializamos el node raiz en None
         self.root = None
-    # Funcion para add un node
-    def add(self, k, node):
+
+    def add_node(self, k, node):
         # Si el node raiz no existe
         if self.root == None:
             # Se crea un node raiz con el value k
@@ -29,7 +29,7 @@ class BTree:
                 # Si el node leftuierdo tiene hijos
                 else:
                     # Llamamos recursivamente a la funcion con el node leftuierdo
-                    self.add(k, node.left)
+                    self.add_node(k, node.left)
             # Si el value es mayor que el value del node raiz, se inserta en el subarbol rightecho
             elif k > node.value:
                 # Si el node rightecho es None (no tiene hijos)
@@ -39,7 +39,7 @@ class BTree:
                 #Si el node rightecho tiene hijos
                 else:
                     # Llamamos recursivamente a la funcion con el node rightecho
-                    self.add(k, node.right)
+                    self.add_node(k, node.right)
 
             # Si el value ya existe en el arbol
             elif k == node.value:
@@ -250,23 +250,23 @@ if __name__ == '__main__':
     arbol.print_tree()
 
     # Insertamos node
-    arbol.add(8, arbol.root)
-    arbol.add(3, arbol.root)
-    arbol.add(10, arbol.root)
-    arbol.add(1, arbol.root)
-    arbol.add(6, arbol.root)
-    arbol.add(14, arbol.root)
-    arbol.add(4, arbol.root)
-    arbol.add(7, arbol.root)
-    arbol.add(13, arbol.root)
+    arbol.add_node(8, arbol.root)
+    arbol.add_node(3, arbol.root)
+    arbol.add_node(10, arbol.root)
+    arbol.add_node(1, arbol.root)
+    arbol.add_node(6, arbol.root)
+    arbol.add_node(14, arbol.root)
+    arbol.add_node(4, arbol.root)
+    arbol.add_node(7, arbol.root)
+    arbol.add_node(13, arbol.root)
 
     # Imprimimos el arbol
     arbol.print_tree()
 
     # Inserta valuees repetidos
     print("\n")
-    arbol.add(14, arbol.root) # value repetido
-    arbol.add(1, arbol.root) # valuedo repetido
+    arbol.add_node(14, arbol.root) # value repetido
+    arbol.add_node(1, arbol.root) # valuedo repetido
     print("\n")
 
     # Obtenemos el maximum y minimum del arbol
@@ -311,7 +311,7 @@ if __name__ == '__main__':
     arbol.print_tree()
 
     # Insertamos un value en el arbol
-    arbol.add(100, arbol.root)
+    arbol.add_node(100, arbol.root)
     arbol.print_tree()
 
     #No pude realizar el print pretty
