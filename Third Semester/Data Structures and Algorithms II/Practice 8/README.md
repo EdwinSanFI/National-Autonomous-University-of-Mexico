@@ -8,9 +8,9 @@ Binary Tree is defined as a Tree data structure with at most 2 children. Since e
 
 Binary Tree node contains the following parts:
 
-* Data
-* Pointer to left child
-* Pointer to right child
+* Value
+* Pointer to left child (has to be less than the value)
+* Pointer to right child (has to be greater than the value)
 
 ``` python
 class node:
@@ -21,7 +21,7 @@ class node:
         self.right = None
 ```
 
-<img src="./practice82.png" >
+<img src="./practice81.png" >
 
 #### Tree
 
@@ -33,6 +33,8 @@ class Binary_Tree:
     def __init__(self):
         self.root = None
 ```
+
+<img src="./practice82.png" >
 
 The binary tree class has the following methods:
 
