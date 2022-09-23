@@ -9,7 +9,6 @@ class node:
 class Binary_Tree:
     # Constructor
     def __init__(self):
-        # Inicializamos el node raiz en None
         self.root = None
 
     def add_node(self, k, node):
@@ -45,7 +44,6 @@ class Binary_Tree:
             elif k == node.value:
                 print("The value " + str(k) + " already exists in the tree")
 
-    # Funcion para print_tree el arbol por el metodo in_order
     def in_order(self, node):
         # Si el node no es None
         if node != None:
@@ -56,7 +54,6 @@ class Binary_Tree:
             # Llamamos recursivamente a la funcion con el node rightecho
             self.in_order(node.right)
 
-    # Funcion para print_tree el arbol por el metodo pre_order
     def pre_order(self, node):
         # Si el node no es None
         if node != None:
@@ -64,7 +61,6 @@ class Binary_Tree:
             self.pre_order(node.left)
             self.pre_order(node.right)
 
-    # Funcion para print_tree el arbol por el metodo post_order
     def post_order(self, node):
         # Si el node no es None
         if node != None:
@@ -75,7 +71,6 @@ class Binary_Tree:
             # Imprimimos el value del node
             print(node.value, end=" ")
 
-    # Funcion para search un value en el arbol
     def search(self, k, node):
         # Si el node no es None
         if node != None:
@@ -163,22 +158,17 @@ class Binary_Tree:
             else:
                 print("\nNo se pudo eliminar el value " + str(k), " porque no existe")
 
-    # Obtiene el value maximum del arbol
+    # Get the minimum value in the tree
     def minimum(self, node):
-        # Si el node no es None
         if node != None:
-            # Si el node tiene hijo leftuierdo
             if node.left != None:
-                # Llamamos recursivamente a la funcion con el node leftuierdo
                 return self.minimum(node.left)
-            # Si el node no tiene hijo leftuierdo
             else:
-                # Retornamos el value del node
                 return node.value
         else:
             return None
 
-    # Obtiene el value minimum del arbol
+    # Get the maximum value in the tree
     def maximum(self, node):
         # Si el node no es None
         if node != None:
@@ -193,7 +183,7 @@ class Binary_Tree:
         else:
             return None
 
-    # Imprime el contenido del arbol
+    # Print the tree
     def print_tree(self):
         print("\n*Tree*")
         # Si el node raiz no es None (existe)
