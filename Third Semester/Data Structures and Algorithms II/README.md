@@ -10,8 +10,8 @@
 ## [Practice 6](./Practice%206/) - Graphs I
 ## [Practice 7](./Practice%207/) - Graphs II
 ## [Practice 8](./Practice%208/) - Trees I
-## [Practice 9]() - Trees II
-## [Practice 10]() - Files
-## [Practice 11]() - Threads OpenMP
-## [Practice 12]() - Parallel Programming I
-## [Practice 13]() - Parallel Programming II
+## [Practice 9](./Practice%209/) - Trees II
+## [Practice 10](./Practice%2010/) - Files
+## [Practice 11](./Practice%2011/) - Threads OpenMP
+## [Practice 12](./Practice%2012/) - Parallel Programming I
+## [Practice 13](./Practice%2013/) - Parallel Programming II

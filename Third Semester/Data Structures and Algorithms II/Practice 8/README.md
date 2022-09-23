@@ -1,12 +1,16 @@
-## B Tree
+## Binary Tree
 
-
+Binary Tree is defined as a Tree data structure with at most 2 children. Since each element in a binary tree can have only 2 children, we typically name them the left and right child.
 
 ### Classes
 
 #### Node
 
+Binary Tree node contains the following parts:
 
+* Data
+* Pointer to left child
+* Pointer to right child
 
 ``` python
 class node:
@@ -19,19 +23,18 @@ class node:
 
 <img src="./practice82.png" >
 
-#### Graph
+#### Tree
 
-The graph class has a dictionary of nodes. The key is the name of the station and the value is the node. This dictionary will be used to store all the nodes of the graph.
+A full Binary tree is a special type of binary tree in which every parent node/internal node has either two or no children.
 
 ``` python
-class graph:
+class Binary_Tree:
     # Constructor
     def __init__(self):
-        # Inicializamos el node raiz en None
         self.root = None
 ```
 
-The graph class has the following methods:
+The binary tree class has the following methods:
 
 <ul>
     <li><code>add_node</code>: Add a node to the tree.</li>
@@ -45,5 +48,4 @@ The graph class has the following methods:
     <li><code>breadth</code>: </li>
 </ul>
 
-
-For more details of the code you can check the [practice.py](./practice8.py) file.
+For more details of the code you can check the [practice8.py](./practice8.py) file.

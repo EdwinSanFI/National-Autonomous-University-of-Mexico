@@ -6,7 +6,7 @@ class node:
         self.right = None
 
 # Arbol B
-class BTree:
+class Binary_Tree:
     # Constructor
     def __init__(self):
         # Inicializamos el node raiz en None
@@ -244,7 +244,7 @@ class BTree:
 # Funcion main
 if __name__ == '__main__':
     # Creamos un arbol
-    arbol = BTree()
+    arbol = Binary_Tree()
 
     # Insertamos node
     arbol.print_tree()
