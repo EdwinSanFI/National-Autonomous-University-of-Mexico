@@ -12,35 +12,27 @@ class Binary_Tree:
         self.root = None
 
     def add_node(self, k, node):
-        # Si el node raiz no existe
+        # If the tree is empty
         if self.root == None:
-            # Se crea un node raiz con el value k
             self.root = node(k)
 
-        # Si el node raiz existe
         else:
-            # Si el value es menor que el value del node raiz, se inserta en el subtree leftuierdo
+            # If the value is less than the node value
             if k < node.value:
-                # Si el node leftuierdo es None (no tiene hijos)
+                # If the node has no left child
                 if node.left == None:
-                    # Insertamos el value en el node leftuierdo
                     node.left = node(k)
-                # Si el node leftuierdo tiene hijos
+                # If the node has a left child
                 else:
-                    # Llamamos recursivamente a la funcion con el node leftuierdo
                     self.add_node(k, node.left)
-            # Si el value es mayor que el value del node raiz, se inserta en el subtree rightecho
+            # If the value is greater than the node value
             elif k > node.value:
-                # Si el node rightecho es None (no tiene hijos)
+                # If the node has no right child
                 if node.right == None:
-                    # Insertamos el value en el node rightecho
                     node.right = node(k)
-                #Si el node rightecho tiene hijos
+                # If the node has a right child
                 else:
-                    # Llamamos recursivamente a la funcion con el node rightecho
                     self.add_node(k, node.right)
-
-            # Si el value ya existe en el tree
             elif k == node.value:
                 print("The value " + str(k) + " already exists in the tree")
 
