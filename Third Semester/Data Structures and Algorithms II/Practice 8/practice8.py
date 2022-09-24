@@ -5,7 +5,7 @@ class node:
         self.left = None
         self.right = None
 
-# Arbol B
+# tree B
 class Binary_Tree:
     # Constructor
     def __init__(self):
@@ -19,7 +19,7 @@ class Binary_Tree:
 
         # Si el node raiz existe
         else:
-            # Si el value es menor que el value del node raiz, se inserta en el subarbol leftuierdo
+            # Si el value es menor que el value del node raiz, se inserta en el subtree leftuierdo
             if k < node.value:
                 # Si el node leftuierdo es None (no tiene hijos)
                 if node.left == None:
@@ -29,7 +29,7 @@ class Binary_Tree:
                 else:
                     # Llamamos recursivamente a la funcion con el node leftuierdo
                     self.add_node(k, node.left)
-            # Si el value es mayor que el value del node raiz, se inserta en el subarbol rightecho
+            # Si el value es mayor que el value del node raiz, se inserta en el subtree rightecho
             elif k > node.value:
                 # Si el node rightecho es None (no tiene hijos)
                 if node.right == None:
@@ -40,82 +40,54 @@ class Binary_Tree:
                     # Llamamos recursivamente a la funcion con el node rightecho
                     self.add_node(k, node.right)
 
-            # Si el value ya existe en el arbol
+            # Si el value ya existe en el tree
             elif k == node.value:
                 print("The value " + str(k) + " already exists in the tree")
 
     def in_order(self, node):
-        # Si el node no es None
         if node != None:
-            # Llamamos recursivamente a la funcion con el node leftuierdo hasta que sea None
             self.in_order(node.left)
-            # Imprimimos el value del node
             print(node.value, end=" ")
-            # Llamamos recursivamente a la funcion con el node rightecho
             self.in_order(node.right)
 
     def pre_order(self, node):
-        # Si el node no es None
         if node != None:
             print(node.value, end=" ")
             self.pre_order(node.left)
             self.pre_order(node.right)
 
     def post_order(self, node):
-        # Si el node no es None
         if node != None:
-            # Llamamos recursivamente a la funcion con el node leftuierdo
             self.post_order(node.left)
-            # Llamamos recursivamente a la funcion con el node rightecho
             self.post_order(node.right)
-            # Imprimimos el value del node
             print(node.value, end=" ")
 
     def search(self, k, node):
-        # Si el node no es None
         if node != None:
-            # Si el value es menor que el value del node raiz
             if k < node.value:
-                # Llamamos recursivamente a la funcion con el node leftuierdo
                 self.search(k, node.left)
-            # Si el value es mayor que el value del node raiz
             elif k > node.value:
-                # Llamamos recursivamente a la funcion con el node rightecho
                 self.search(k, node.right)
-            # Si el value es igual que el value del node raiz
             elif k == node.value:
                 print("Existe el " + str(k),"? True")
-        # No existe el node
         else:
             print("Existe el " + str(k),"? False")
 
     # Funcion para eliminar un node
     def delete2(self, k, node):
-        # Se guarda en un arreglo los node recorridos en el arbol
+        # Se guarda en un arreglo los node recorridos en el tree
         node_recorridos =[node]
-        # Mientras el node sea distinto a None
         while node != None:
-            # Si el value es menor que el value del node raiz
             if k < node.value:
-                # El node leftuierdo es el node actual
                 node = node.left
-                # Se agrega al arreglo el node actual
                 node_recorridos.append(node)
-            # Si el value es mayor que el value del node raiz
             elif k > node.value:
-                # El node rightecho es el node actual
                 node = node.right
-                # Se agrega al arreglo el node actual
                 node_recorridos.append(node)
-            # Si el value es igual que el value del node raiz
             elif k == node.value:
-                # Si el node tiene hijos
                 if node.left != None and node.right != None:
-                    # Se obtiene el value maximum en el subarbol leftuierdo
                     value_max = self.maximum(node.left)
-                    # Se elimina el value maximum en el subarbol leftuierdo
                     self.delete2(value_max,node)
-                    # Se actualiza el value del node actual
                     node.value = value_max
 
                 # Si el node no tiene hijos
@@ -186,122 +158,105 @@ class Binary_Tree:
     # Print the tree
     def print_tree(self):
         print("\n*Tree*")
-        # Si el node raiz no es None (existe)
         if self.root != None:
-            # Imprime el contenido del arbol a traves del metodo pre orden
             print(" -pre_order: ", end=" ")
             self.pre_order(self.root)
             print()
-            # Imprime el contenido del arbol a traves del metodo in orden
             print(" -in_order: ",end=" ")
             self.in_order(self.root)
             print()
-            # Imprime el contenido del arbol a traves del metodo post orden
             print(" -post_order",end=" ")
             self.post_order(self.root)
             print()
-            # Imprime el contenido del arbol a traves del metodo de breadth
             print(" -breadth",end=" ")
             self.breadth(self.root)
-            # Llamamos a la funcion con el node raiz
             print()
-        # Si el node raiz no existe (arbol vacio)
         else:
-            print("El arbol esta vacio")
+            print("The tree is empty")
 
-    # Funcion para recorrer el arbol por niveles
+    # Method to go through the tree in level order
     def breadth(self, node):
         if node !=None:
-            # Creamos una queue
             queue = []
-            # Agregamos el node raiz a la queue
             queue.append(node)
-            # Mientras la queue no este vacia
             while len(queue) > 0:
-                # Sacamos el primer elemento de la queue
+                # Get the first node in the queue
                 node = queue.pop(0)
-                # Imprimimos el value del node
                 print(node.value, end=" ")
-                # Si el node tiene hijo leftuierdo
+                # If the node has a left child
                 if node.left != None:
-                    # Agregamos el hijo leftuierdo a la queue
                     queue.append(node.left)
-                # Si el node no tiene hijo leftuierdo
+                # If the node has a right child
                 if node.right != None:
-                    # Agregamos el hijo rightecho a la queue
                     queue.append(node.right)
 
-# Funcion main
 if __name__ == '__main__':
-    # Creamos un arbol
-    arbol = Binary_Tree()
+    # Create a binary tree
+    tree = Binary_Tree()
 
-    # Insertamos node
-    arbol.print_tree()
+    # Empty tree
+    tree.print_tree()
 
-    # Insertamos node
-    arbol.add_node(8, arbol.root)
-    arbol.add_node(3, arbol.root)
-    arbol.add_node(10, arbol.root)
-    arbol.add_node(1, arbol.root)
-    arbol.add_node(6, arbol.root)
-    arbol.add_node(14, arbol.root)
-    arbol.add_node(4, arbol.root)
-    arbol.add_node(7, arbol.root)
-    arbol.add_node(13, arbol.root)
+    # Insert values
+    tree.add_node(8, tree.root)
+    tree.add_node(3, tree.root)
+    tree.add_node(10, tree.root)
+    tree.add_node(1, tree.root)
+    tree.add_node(6, tree.root)
+    tree.add_node(14, tree.root)
+    tree.add_node(4, tree.root)
+    tree.add_node(7, tree.root)
+    tree.add_node(13, tree.root)
 
-    # Imprimimos el arbol
-    arbol.print_tree()
+    # Tree with values
+    tree.print_tree()
 
-    # Inserta valuees repetidos
+    # Add a repeated value
     print("\n")
-    arbol.add_node(14, arbol.root) # value repetido
-    arbol.add_node(1, arbol.root) # valuedo repetido
+    tree.add_node(14, tree.root)
+    tree.add_node(1, tree.root)
     print("\n")
 
-    # Obtenemos el maximum y minimum del arbol
-    print("**Metodo maximum y minimum**")
-    print("\nEl value minimum es: ",arbol.minimum(arbol.root))
-    print("El value maximum es: ",arbol.maximum(arbol.root))
+    # Get the maximum y minimum value of the tree
+    print("**Maximum and minimum value**")
+    print("\nThe minimum value is: ",tree.minimum(tree.root))
+    print("The maximum value is: ",tree.maximum(tree.root))
     print()
 
-    # Buscamos un value en el arbol
-    print("\n**Metodo search**\n")
-    arbol.search(4,arbol.root)
-    arbol.search(8,arbol.root)
-    arbol.search(13,arbol.root)
-    arbol.search(2,arbol.root)
-    arbol.search(15,arbol.root)
+    # Buscamos un value en el tree
+    print("\n**Search method**\n")
+    tree.search(4,tree.root)
+    tree.search(8,tree.root)
+    tree.search(13,tree.root)
+    tree.search(2,tree.root)
+    tree.search(15,tree.root)
 
-    # Eliminamos un value del arbol
-    print("\n**Metodo elimniar**\n")
+    print("\n**Delete method**\n")
 
-    print("\n  -Borrando el 7 (sin hijos)")
-    arbol.delete2(7, arbol.root)
-    arbol.print_tree()
+    print("\n  -Deleting the node 7 (no children)")
+    tree.delete2(7, tree.root)
+    tree.print_tree()
 
-    print("\n  -Borrando el 10 (con hijo rightecho)")
-    arbol.delete2(10, arbol.root)
-    arbol.print_tree()
+    print("\n  -Deleting the node 10 (with right children)")
+    tree.delete2(10, tree.root)
+    tree.print_tree()
 
-    print("\n  -Borrando el 6 (con hijo leftuierdo)")
-    arbol.delete2(6, arbol.root)
-    arbol.print_tree()
+    print("\n  -Deleting the node 6 (with left children)")
+    tree.delete2(6, tree.root)
+    tree.print_tree()
 
-    print("\n  -Borrando el 3 (con ambos hijos)")
-    arbol.delete2(3, arbol.root)
-    arbol.print_tree()
+    print("\n  -Deleting the node 3 (with two children)")
+    tree.delete2(3, tree.root)
+    tree.print_tree()
 
-    print("\n  -Borrando el 3 (no existe)")
-    arbol.delete2(3, arbol.root)
-    arbol.print_tree()
+    print("\n  -Deleting the node 3 (doesn't exist)")
+    tree.delete2(3, tree.root)
+    tree.print_tree()
 
-    print("\n  -Borrando el 8 (raiz, ambos hijos)")
-    arbol.delete2(8, arbol.root)
-    arbol.print_tree()
+    print("\n  -Deleting the node 8 (root)")
+    tree.delete2(8, tree.root)
+    tree.print_tree()
 
-    # Insertamos un value en el arbol
-    arbol.add_node(100, arbol.root)
-    arbol.print_tree()
-
-    #No pude realizar el print pretty
+    # Insertamos un value en el tree
+    tree.add_node(100, tree.root)
+    tree.print_tree()

@@ -34,7 +34,7 @@ class Binary_Tree:
         self.root = None
 ```
 
-<img src="./practice82.png" >
+<img src="./practice82.png">
 
 The binary tree class has the following methods:
 
