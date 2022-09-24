@@ -22,14 +22,14 @@ Goes from 0 to n and calculates the Fibonacci number for each one.
 ```python
 def fib(n):
   f0 = 0   # O(1)
-    f1 = 1   # O(1)
-    if n == 0 or n == 1:
-        return 1
-    for _ in range(2, n+1):    # O(n)
-        fn = f0 + f1    # O(1) * n
-        f0 = f1    # O(1) * n
-        f1 = fn    # O(1) * n
-    return fn    # O(n)
+  f1 = 1   # O(1)
+  if n == 0 or n == 1:
+    return 1
+  for _ in range(2, n+1):    # O(n)
+    fn = f0 + f1    # O(1) * n
+    f0 = f1    # O(1) * n
+    f1 = fn    # O(1) * n
+  return fn    # O(n)
 ```
 
 <p align="center">
@@ -43,7 +43,7 @@ Time complexity: O(2^n)
 ```python
 def fibo_recursive(n):
   if n == 0 or n == 1:
-      return 1
+    return 1
   return fibo_recursive(n-1) + fibo_recursive(n-2) # O(n^c)
 ```
 
