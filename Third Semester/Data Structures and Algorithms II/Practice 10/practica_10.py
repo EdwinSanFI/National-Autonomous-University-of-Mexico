@@ -10,55 +10,36 @@ def run():
         file = open("covid-19-mexico-01122020.csv", "r", encoding="utf-8")
         lines = file.readlines()
 
-        # Obtengo el total de cases y el caso por state
+        # Get the data from the file
         for i in range(1, len(lines)):
-            # Obtengo los datos de la linea
             line_separated = lines[i].split(",")
-            # Obtengo el state
             state = line_separated[1]
-            # Sumo un caso
             total_cases += 1
-            # Obtengo el gender
             gender = line_separated[2]
-            # Sumo un caso al gender
             gender_cases[gender] += 1
-            # Obtengo la age
             age = line_separated[3]
-            # Si la age no esta en el diccionario, la agrego
             age_cases[age] = age_cases.get(age, 0) + 1
             cases_per_state[state] = cases_per_state.get(state, 0) + 1
 
-        # Cierro el file
+        # Close the file
         file.close()
 
-        # Ordeno los states por el total de cases
         sorted_states = sorted(cases_per_state, key=cases_per_state.get, reverse=True)
-
-        # Guardo el state con mas cases
         state_with_more_cases = sorted_states[0]
-
-        # Guardo el state con menos cases
         state_with_less_cases = sorted_states[len(sorted_states) - 1]
-
-        # Obtengo el total de cases por gender
         total_gender_male = gender_cases['M']
         total_gender_female = gender_cases['F']
-
-        # Promedio de age
         age_avarage = 0
         for age in age_cases.keys():
             age_avarage += int(age) * age_cases[age]
-
         age_avarage = age_avarage / total_cases
-
-        # age minima y maxima
         minimum_age = min(age_cases.keys())
         maximum_age = max(age_cases.keys())
 
         if not os.path.exists("PracticaResumen"):
             os.mkdir("PracticaResumen")
 
-        # Guardo los datos en un file
+        # Save the data in the file
         with open("PracticaResumen/resumenCovid.eda2", "w", encoding="utf-8") as file2:
             file2.write("\nTotal of cases: " + str(total_cases) + "\n")
             file2.write("\nState with more cases: " + state_with_more_cases + "\n")
