@@ -1,10 +1,9 @@
 import random
 
-# Clase Nodo
 class Node:
     # Constructor
     def __init__(self, t):
-        # Grado del arbol
+        # Grado del tree
         self.t = t
         # Elementos/llaves/valores del nodo
         self.llaves = [None] * (2 * t - 1) # El nodo puede tener varios valores (llamados llaves)
@@ -16,25 +15,25 @@ class Node:
         self.hoja = True
 
     # Revisa si el nodo esta lleno
-    def Esta_Lleno(self):
+    def is_full(self):
         # Si el nodo tiene el numero de llaves que puede tener, esta lleno
         return self.n == 2*self.t - 1
 
-# Clase Arbol B
-class Arbol_B:
+# Clase tree B
+class tree_B:
     # Constructor
     def __init__(self,t):
-        # Grado del arbol
+        # Grado del tree
         self.t = t
-        # Raiz del arbol, nodo raiz
+        # Raiz del tree, nodo raiz
         self.root = Node(t)
 
-    #Inserta un nuevo valor en el arbol
-    def Insertar(self, k):
+    #Inserta un nuevo valor en el tree
+    def insert(self, k):
         # Obtenemos la raiz
         r = self.root
         # Si el nodo raiz esta lleno
-        if r.Esta_Lleno():
+        if r.is_full():
             # Se crea un nuevo nodo raiz
             s = Node(self.t)
             # Se le asigna que no es hoja, porque tendra nodos hijos
@@ -46,16 +45,16 @@ class Arbol_B:
             # Se asigna el nuevo nodo raiz
             self.root = s
             # Recibe el nodo raiz y el indice que se quiere partir
-            self.Split_Child(s,0)
-            # Se inserta el nuevo valor en el arbol
-            self.Insert_Non_Full(s,k)
+            self.split_child(s,0)
+            # Se inserta el nuevo valor en el tree
+            self.insert_non_full(s,k)
         # Si el nodo raiz no esta lleno
         else:
-            # Se inserta el nuevo valor en el arbol
-            self.Insert_Non_Full(r,k)
+            # Se inserta el nuevo valor en el tree
+            self.insert_non_full(r,k)
 
     # Parte el nodo en dos
-    def Split_Child(self, x, i):
+    def split_child(self, x, i):
         z = Node(self.t)
         y = x.hijos[i]
         z.hoja = y.hoja
@@ -86,8 +85,8 @@ class Arbol_B:
         y.llaves[self.t-1] = None
         x.n += 1
 
-    # Inserta un nuevo valor en el arbol si el nodo no esta lleno
-    def Insert_Non_Full(self, x, k): # Revisado
+    # Inserta un nuevo valor en el tree si el nodo no esta lleno
+    def insert_non_full(self, x, k): # Revisado
         # Indice de la ultima llave
         i = x.n-1
         if x.hoja:
@@ -100,20 +99,20 @@ class Arbol_B:
             # Se aumenta el numero de llaves
             x.n += 1
         else:
-            # Buscar el lugar donde le corresponde
+            # search el lugar donde le corresponde
             while i>=0 and k<x.llaves[i]:
                 i -= 1
             i += 1
-            if x.hijos[i].Esta_Lleno():
+            if x.hijos[i].is_full():
                 # Se parte el nodo
-                self.Split_Child(x,i)
+                self.split_child(x,i)
                 if k>x.llaves[i]:
                     i += 1
             # Se llama recursivamente
-            self.Insert_Non_Full(x.hijos[i],k)
+            self.insert_non_full(x.hijos[i],k)
 
-    # Busca un elemento/llave/valor en el arbol
-    def Buscar(self, x, k):
+    # Busca un elemento/llave/valor en el tree
+    def search(self, x, k):
         i = 0
         # Se recorren las llaves para encontrar el valor
         while i<x.n and k>x.llaves[i]:
@@ -129,38 +128,38 @@ class Arbol_B:
         # Si el nodo no es hoja
         else:
             # Regresa el resultado de la busqueda
-            return self.Buscar(x.hijos[i],k)
+            return self.search(x.hijos[i],k)
 
-    # Imprime el contenido del arbol
-    def Imprimir(self, nodo):
-        print("\n**Metodo Imprimir**")
+    # Imprime el contenido del tree
+    def print_tree(self, nodo):
+        print("\n**Metodo print_tree**")
         # Si el nodo no esta vacion
         if nodo.n != 0:
             # Se imprime en In Orden
             print("\n  -In Orden: ", end="")
-            self.In_Orden(nodo)
+            self.in_order(nodo)
             # Se imprime en Pre Orden
             print("\n  -Pre Orden: ", end="")
-            self.Pre_Orden(nodo)
-        # El arbol está vacio
+            self.pre_order(nodo)
+        # El tree está vacio
         else:
-            print("\n -El arbol esta vacio")
+            print("\n -El tree esta vacio")
 
-    # Recorre el arbol en inorden
-    def In_Orden(self, nodo):
+    # Recorre el tree en inorden
+    def in_order(self, nodo):
         # Si el nodo no esta vacio
         if nodo is not None:
             # Se recorre las llaves del nodo
             for i in range(nodo.n):
                 # Se llama recursivamente a la funcion con el hijo "izquierdo"
-                self.In_Orden(nodo.hijos[i])
+                self.in_order(nodo.hijos[i])
                 # Se imprime la llave
                 print(nodo.llaves[i], end=" ")
                 # Se llama recursivamente a la funcion con el hijo "derecho"
-                self.In_Orden(nodo.hijos[i+1])
+                self.in_order(nodo.hijos[i+1])
 
-    # Recorre el arbol en preorden
-    def Pre_Orden(self, nodo):
+    # Recorre el tree en preorden
+    def pre_order(self, nodo):
         # Si el nodo no esta vacio
         if nodo is not None:
             # Se recorren las llaves del nodo
@@ -168,77 +167,77 @@ class Arbol_B:
                 # Se imprime la llave
                 print(nodo.llaves[i], end=" ")
                 # Se llama recursivamente con el hijo "izquierdo"
-                self.Pre_Orden(nodo.hijos[i])
+                self.pre_order(nodo.hijos[i])
                 # Se llama recursivamente con el hijo "derecho"
-                self.Pre_Orden(nodo.hijos[i+1])
+                self.pre_order(nodo.hijos[i+1])
 
-    # Metodo para limpiar el arbol
-    def Limpiar(self):
+    # Metodo para clean_tree el tree
+    def clean_tree(self):
         # Cambiar el valor de la raiz por un nodo vacio
         self.root = Node(self.t)
 
 # Main
 if __name__ == '__main__':
-    # Se instancia un objeto de la clase Arbol_B con grado 2
-    arbol = Arbol_B(2)
+    # Se instancia un objeto de la clase tree_B con grado 2
+    tree = tree_B(2)
 
-    # Se imprime el arbol (vacio)
-    arbol.Imprimir(arbol.root)
+    # Se imprime el tree (vacio)
+    tree.print_tree(tree.root)
 
     # Se insertan los valores
-    arbol.Insertar(3)
-    arbol.Insertar(1)
-    arbol.Insertar(4)
-    arbol.Insertar(2)
-    arbol.Insertar(5)
-    arbol.Insertar(7)
-    arbol.Insertar(6)
-    arbol.Insertar(11)
-    arbol.Insertar(15)
-    arbol.Insertar(22)
-    arbol.Insertar(35)
-    arbol.Insertar(21)
+    tree.insert(3)
+    tree.insert(1)
+    tree.insert(4)
+    tree.insert(2)
+    tree.insert(5)
+    tree.insert(7)
+    tree.insert(6)
+    tree.insert(11)
+    tree.insert(15)
+    tree.insert(22)
+    tree.insert(35)
+    tree.insert(21)
 
-    # Se imprime el arbol
-    arbol.Imprimir(arbol.root)
+    # Se imprime el tree
+    tree.print_tree(tree.root)
 
-    # Se busca un valor en el arbol
-    print("\n\n**Metodo Buscar**\n")
-    print(" -Existe el 3?", arbol.Buscar(arbol.root, 3))
-    print(" -Existe el 6?", arbol.Buscar(arbol.root, 6))
-    print(" -Existe el 15?", arbol.Buscar(arbol.root, 15))
-    print(" -Existe el 0?", arbol.Buscar(arbol.root, 0))
-    print(" -Existe el 13?", arbol.Buscar(arbol.root, 13))
+    # Se busca un valor en el tree
+    print("\n\n**Metodo search**\n")
+    print(" -Existe el 3?", tree.search(tree.root, 3))
+    print(" -Existe el 6?", tree.search(tree.root, 6))
+    print(" -Existe el 15?", tree.search(tree.root, 15))
+    print(" -Existe el 0?", tree.search(tree.root, 0))
+    print(" -Existe el 13?", tree.search(tree.root, 13))
 
-    # Se limpia el arbol
-    print("\n**Metodo Limpiar el arbol**")
-    arbol.Limpiar()
-    arbol.Imprimir(arbol.root)
+    # Se limpia el tree
+    print("\n**Metodo clean_tree el tree**")
+    tree.clean_tree()
+    tree.print_tree(tree.root)
 
     # Se insertan los valores en otro orden
-    arbol.Insertar(15)
-    arbol.Insertar(11)
-    arbol.Insertar(5)
-    arbol.Insertar(3)
-    arbol.Insertar(4)
-    arbol.Insertar(21)
-    arbol.Insertar(7)
-    arbol.Insertar(35)
-    arbol.Insertar(6)
-    arbol.Insertar(2)
-    arbol.Insertar(1)
-    arbol.Insertar(22)
+    tree.insert(15)
+    tree.insert(11)
+    tree.insert(5)
+    tree.insert(3)
+    tree.insert(4)
+    tree.insert(21)
+    tree.insert(7)
+    tree.insert(35)
+    tree.insert(6)
+    tree.insert(2)
+    tree.insert(1)
+    tree.insert(22)
 
-    # Se imprime el arbol
-    arbol.Imprimir(arbol.root)
+    # Se imprime el tree
+    tree.print_tree(tree.root)
 
-    # Se limpia el arbol
-    arbol.Limpiar()
+    # Se limpia el tree
+    tree.clean_tree()
 
     # Se insertan valores aleatorios
-    arbol2 = Arbol_B(5)
+    tree2 = tree_B(5)
     for i in range(1,1000):
-        arbol2.Insertar(random.randint(1,1000))
+        tree2.insert(random.randint(1,1000))
 
-    # Se imprime el arbol
-    arbol2.Imprimir(arbol2.root)
+    # Se imprime el tree
+    tree2.print_tree(tree2.root)
