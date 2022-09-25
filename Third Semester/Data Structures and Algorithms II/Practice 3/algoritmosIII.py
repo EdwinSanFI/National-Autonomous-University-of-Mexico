@@ -1,28 +1,25 @@
-# Libreria para usar la funciones matematicas
 import math
-# Libreria para contar el tiempo
 from time import perf_counter
-# Libreria para escoger numeros aletorios dentro de un rango
 import random
 
-# Calcula el valor maximo del arrelglo A
-def maximo(A):
+# Calcula el valor maximum del arrelglo A
+def maximum(A):
     # Asigna el primer valor del arreglo (se cambiará después)
-    maximo = A[0]
+    maximum = A[0]
     # Recorremos el arreglo
     for i in range(1, len(A)):
-        # Revisamos cual es el elemento maximo
-        if A[i] > maximo:
-            maximo = A[i]
+        # Revisamos cual es el elemento maximum
+        if A[i] > maximum:
+            maximum = A[i]
     # Esta función es igual a:
     # k = max(A) #O(1)
-    # Retornamos el valor maximo del arreglo
-    return maximo
+    # Retornamos el valor maximum del arreglo
+    return maximum
 
 # Algoritmo Counting Sort
-def countingSort(A):
-    # Guarda el elemento maximo
-    k = maximo(A)
+def counting_sort(A):
+    # Guarda el elemento maximum
+    k = maximum(A)
     C = [0]*(k+1)  # == [0 for _ in range(k+1)]
     B = [0]*(len(A)) # == B[0 for _ in range(len(A))]
 
@@ -41,17 +38,17 @@ def countingSort(A):
 
 # Radix sort
 # B es la base
-# D es el numero de digitos maximos
+# D es el numero de digitos maximums
 # Para eso se necesita K
-def radixSort(A):
+def radix_sort(A):
     k = max(A)
     d = math.floor(math.log10(k))+1
     # print('D= ', d) Para ver ek valor de D
     for i in range(d): #Base 10 por ser numeros decimales
-        A = countingSort_Radix(A,10,i)
+        A = counting_sort_Radix(A,10,i)
     return A
 
-def countingSort_Radix(A, b, i):
+def counting_sort_Radix(A, b, i):
     k = b
     C = [0]*(k+1)
     B = [0]*len(A)
@@ -87,17 +84,17 @@ def caso_promedio(n):
 
     # Counting Sort
     tiempo_inicial = perf_counter()
-    countingSort(arreglo)
+    counting_sort(arreglo)
     tiempo_final = perf_counter()
     tiempo_total = tiempo_final - tiempo_inicial
-    print("El tiempo que tarda CountingSort es de {:.8f}".format(tiempo_total))
+    print("El tiempo que tarda counting_sort es de {:.8f}".format(tiempo_total))
 
     # Radix Sort
     tiempo_inicial = perf_counter()
-    radixSort(arreglo2)
+    radix_sort(arreglo2)
     tiempo_final = perf_counter()
     tiempo_total = tiempo_final - tiempo_inicial
-    print("El tiempo que tarda RadixSort es de {:.8f}".format(tiempo_total))
+    print("El tiempo que tarda radix_sort es de {:.8f}".format(tiempo_total))
 
 def mejor_caso(n):
     # Mejor de los casos
@@ -114,17 +111,17 @@ def mejor_caso(n):
 
     # Counting Sort
     tiempo_inicial = perf_counter()
-    countingSort(arreglo)
+    counting_sort(arreglo)
     tiempo_final = perf_counter()
     tiempo_total = tiempo_final - tiempo_inicial
-    print("El tiempo que tarda CountingSort es de {:.8f}".format(tiempo_total))
+    print("El tiempo que tarda counting_sort es de {:.8f}".format(tiempo_total))
 
     # Radix Sort
     tiempo_inicial = perf_counter()
-    radixSort(arreglo2)
+    radix_sort(arreglo2)
     tiempo_final = perf_counter()
     tiempo_total = tiempo_final - tiempo_inicial
-    print("El tiempo que tarda RadixSort es de {:.8f}".format(tiempo_total))
+    print("El tiempo que tarda radix_sort es de {:.8f}".format(tiempo_total))
 
 def peor_caso(n):
     # Peor de los casos
@@ -144,19 +141,19 @@ def peor_caso(n):
     # Cuando el rango de los valores es muy grande
     # toma mucho tiempo en ordenarlo
     tiempo_inicial = perf_counter()
-    countingSort(arreglo)
+    counting_sort(arreglo)
     tiempo_final = perf_counter()
     tiempo_total = tiempo_final - tiempo_inicial
-    print("El tiempo que tarda CountingSort es de {:.8f}".format(tiempo_total))
+    print("El tiempo que tarda counting_sort es de {:.8f}".format(tiempo_total))
 
     # Radix Sort
     # Radix Sort es ideal para rangos grandes de numeros y es mejor para el peor de los casos
     # De counting sort
     tiempo_inicial = perf_counter()
-    radixSort(arreglo2)
+    radix_sort(arreglo2)
     tiempo_final = perf_counter()
     tiempo_total = tiempo_final - tiempo_inicial
-    print("El tiempo que tarda RadixSort es de {:.8f}".format(tiempo_total))
+    print("El tiempo que tarda radix_sort es de {:.8f}".format(tiempo_total))
 
 # Ejecutaa a los 3 casos y asigna el tamaño de las listas
 def run():

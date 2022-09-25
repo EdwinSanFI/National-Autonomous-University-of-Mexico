@@ -1,7 +1,7 @@
 ##################################
 # @author: Edwin Santiago
-# QuickSort y HeapSort
-# We are going to measure the time it takes to sort the list using QuickSort and HeapSort
+# quick_sort y HeapSort
+# We are going to measure the time it takes to sort the list using quick_sort and HeapSort
 ##################################
 
 # The function ranint is used to generate a random number
@@ -11,15 +11,15 @@ from time import perf_counter
 
 # Algorithm: Quick Sort
 # Recieves as parameter the list and the first and last index
-def quickSort(a, p, r):
+def quick_sort(a, p, r):
     # Check if the list has more than 1 element
     if p < r:
         # Divide the list and give the position of the pivot
         q = divide(a,p,r)
         # Subarray of the left part
-        quickSort(a, p, q-1)
+        quick_sort(a, p, q-1)
         # Subarray of the right part
-        quickSort(a,q+1, r)
+        quick_sort(a,q+1, r)
 
 # The function accommodates the subarrays where both parts (left and right) are arranged according to the pivot
 # Receives as parameter the list of numbers, the index of the first element and the size of the list
@@ -100,7 +100,7 @@ def run():
     print("Practica 2")
     print("Ejercicio 2\n")
 
-    arregloQuickSort = [7,3,1,9,2,3,5,4,6,8]
+    arregloquick_sort = [7,3,1,9,2,3,5,4,6,8]
     arregloHeapSort = [7,3,1,9,2,3,5,4,6,8]
 
     print("Arreglo desordenado: ", arregloHeapSort)
@@ -108,7 +108,7 @@ def run():
     # Se inicializa el cronómetro
     tiempoInicial1 = perf_counter()
     # Se ejecuta el algoritmo
-    ordenacionHeapSort(arregloQuickSort)
+    ordenacionHeapSort(arregloquick_sort)
     # Se detiene el cronómetro
     tiempoFinal1 = perf_counter()
     #Se calcula el tiempo tomado a completar el algoritmo
@@ -117,13 +117,13 @@ def run():
     # Se inicializa el cronómetro
     tiempoInicial2 = perf_counter()
     # Se ejecuta el algoritmo
-    quickSort(arregloHeapSort,0,len(arregloHeapSort)-1)
+    quick_sort(arregloHeapSort,0,len(arregloHeapSort)-1)
     # Se detiene el cronómetro
     tiempoFinal2 = perf_counter()
     #Se calcula el tiempo tomado a completar el algoritmo
     tiempo2 = tiempoFinal2 - tiempoInicial2
 
-    print("Lista ordenada por QuickSort: ", arregloQuickSort)
+    print("Lista ordenada por quick_sort: ", arregloquick_sort)
     print("El algoritmo tardó: {:.8f}".format(tiempo1))
     print("Lista ordenada por HeapSort: ",arregloHeapSort)
     print("El algoritmo tardó: {:.8f}".format(tiempo2))
