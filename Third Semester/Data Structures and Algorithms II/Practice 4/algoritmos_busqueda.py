@@ -4,7 +4,7 @@ from time import perf_counter
 # Busqued Lineal Optimizada
 # Busca en el arreglo si se encuentra el valor KEY
 # Retornara la posicion del valor buscado
-def busqueda_lineal_mejorada(arreglo, key):
+def lineal_search_optimized(arreglo, key):
     # Recorre el arreglo
     for i in range(len(arreglo)):
         # Si la posicion i es igual al elemento a buscar
@@ -16,7 +16,7 @@ def busqueda_lineal_mejorada(arreglo, key):
 # Busqueda Lineal con centinela
 # Busca en el arreglo si se encuentra el valor KEY
 # Retornara la posicion del valor buscado
-def busqueda_lineal_centinela(arreglo,key):
+def sentinel_lineal_search(arreglo,key):
     # Guarda el ultimo elemento del arreglo
     ultimo = arreglo[len(arreglo)-1]
     # El ultimo elemento se iguala al elemento a buscar
@@ -37,7 +37,7 @@ def busqueda_lineal_centinela(arreglo,key):
     return -1
 
 # Busqueda Binaria Recursiva
-def busqueda_binaria(arreglo, key, inicio, final):
+def binary_search(arreglo, key, inicio, final):
     # Si el indice inicial es mayor que el final
     if inicio > final:
         # Ya no hay más elementos en el arreglo y retorna -1
@@ -52,12 +52,12 @@ def busqueda_binaria(arreglo, key, inicio, final):
     elif key < arreglo[mitad]:
         # Se llama a si misma pero se utilizara los elementos del arreglo desde
         # El primer elemento hasta el elemnto de la mitad de la lista.
-        return busqueda_binaria(arreglo, key, inicio, mitad-1)
+        return binary_search(arreglo, key, inicio, mitad-1)
     # O si el valor bsucado es mayor al valor del indice de la mitad
     else:
         # Se llama a si misma pero se utilizara los elementos del arreglo desde
         # El la mitad de la lista hasta el ultimo elemento.
-        return busqueda_binaria(arreglo, key, mitad+1, final)
+        return binary_search(arreglo, key, mitad+1, final)
 
 def run():
     # Tamaño del arreglo
@@ -80,14 +80,14 @@ def run():
     # Se guarda el tiempo que tardó el algoritmo y la posición donde se encontró
     # Inicializa el conteo de tiempo
     tiempo_inicial = perf_counter()
-    indice_busqueda_lineal_centinela = busqueda_lineal_centinela(arreglo, key)
+    indice_sentinel_lineal_search = sentinel_lineal_search(arreglo, key)
     # Finaliza el conteo de tiempo
     tiempo_final = perf_counter()
     # Obtiene el tiempo total
     tiempo_centinela = tiempo_final - tiempo_inicial
     # Si la posicion no es -1
-    if indice_busqueda_lineal_centinela != -1:
-        print("Busqueda Lineal con Centinela Se encontró el dato en el índice: ", indice_busqueda_lineal_centinela, "y tardó {:.6f}".format(tiempo_centinela))
+    if indice_sentinel_lineal_search != -1:
+        print("Busqueda Lineal con Centinela Se encontró el dato en el índice: ", indice_sentinel_lineal_search, "y tardó {:.6f}".format(tiempo_centinela))
     # Si la posicion es -1
     else:
         print("Busqueda Lineal Con Centinela: ",no_dato)
@@ -96,7 +96,7 @@ def run():
     # Guarda el tiempo que tarda el algoritmo y la posicion del elemento encontrado
     # Inicializa el conteo de tiempo
     tiempo_inicial = perf_counter()
-    indice_busqueda_lineal = busqueda_lineal_mejorada(arreglo, key)
+    indice_busqueda_lineal = lineal_search_optimized(arreglo, key)
     # Finaliza el conteo de tiempo
     tiempo_final = perf_counter()
     # Obtiene el tiempo total
@@ -114,14 +114,14 @@ def run():
     # Inicializa el contador
     tiempo_inicial = perf_counter()
     # Ejecuta el algortimo y guarda la posicion de elemento encontrado
-    indice_busqueda_binaria = busqueda_binaria(arreglo, key, 0, len(arreglo)-1)
+    indice_binary_search = binary_search(arreglo, key, 0, len(arreglo)-1)
     # Finaliza el contador
     tiempo_final = perf_counter()
     # Obtiene el tiempo total
     tiempo_binario = tiempo_final - tiempo_inicial
     # Si la posicion no es -1
-    if indice_busqueda_binaria != -1:
-        print("Busqueda Binaria: Se encontró el dato en el índice: ", indice_busqueda_binaria, "y tardó {:.6f}".format(tiempo_binario))
+    if indice_binary_search != -1:
+        print("Busqueda Binaria: Se encontró el dato en el índice: ", indice_binary_search, "y tardó {:.6f}".format(tiempo_binario))
     # Si la posicion es -1
     else:
         print("Busqueda Binaria: ",no_dato)
