@@ -29,7 +29,7 @@ def hashing(tabla_hash, llave):
 
 # Inserta a la Tabla Hash la informacion del alumno en forma de un arreglo
 # Recibe como parametros la Tabla Hash, el nombre del usuario y la informacion del usuario
-def insertar(tablaHash, fullname, usuario):
+def add(tablaHash, fullname, usuario):
     # En la posicion que retorna la funcion hashing() se inserta en un arreglo la informacion del usuario
     tablaHash[hashing(tablaHash, fullname)].insert(hashing(tablaHash, fullname),[usuario])
     # Retorna la tabla hash con actualizada
@@ -37,7 +37,7 @@ def insertar(tablaHash, fullname, usuario):
 
 # Busca en la Tabla Hash el nombre del alumno y retorna su información
 # Recibe como parametros la Tabla Hash y el nombre del usuario
-def buscar(tabla_hash, nombre_usuario):
+def search(tabla_hash, nombre_usuario):
     # Guarda el indice en donde se podria econtrar la lista de la información del usuario
     indice = hashing(tabla_hash, nombre_usuario)
     # Recorre la lista en donde se encuentra la informacion del usuario
@@ -53,8 +53,8 @@ def buscar(tabla_hash, nombre_usuario):
 # Valida que el nombre de un usuario y su contraseña sean las mismas a las guardadas en el sistema
 # Recibe como parametros la Tabla Hash, el nombre del usuario y su contraseña
 def login(tabla_hash, username, password):
-    # Guarda un valor a buscar en la tabla hash el nombre del usuario
-    usuario = buscar(tabla_hash, username)
+    # Guarda un valor a search en la tabla hash el nombre del usuario
+    usuario = search(tabla_hash, username)
 
     # Si se guarda otro valor que no sea False (datos del usuario)
     if usuario != False:
@@ -83,7 +83,7 @@ def run():
 
     # Cada usuario de la base de datos será agregado a la tabla hash
     for i in range(len(tabla_hash)):
-        tabla_hash = insertar(tabla_hash, database[i].fullname,database[i])
+        tabla_hash = add(tabla_hash, database[i].fullname,database[i])
 
     # Solicita el nombre y la contraseña de un usuario
     username = input("\nCual es el nombre del usuario? ")
@@ -91,24 +91,24 @@ def run():
     # Metodo que para validar la información ingresada y simula el acceso a una cuenta
     login(tabla_hash, username, password)
 
-    # Metodo Buscar de la Tabla Hash
+    # Metodo search de la Tabla Hash
     # Se crea una arreglo en donde se guardan el nombre de 10 usuarios distintos
-    buscar_usuarios = []
+    search_usuarios = []
     for i in range(10):
         # Escoge un numero aleatorio entre 0 y 10_000 para obtener el nombre del usuario de esa posicion
         indice_aleatorio = randint(0, 10000)
         # Agrega al arreglo el nombre de los usuarios
-        buscar_usuarios.append(database[indice_aleatorio].fullname)
-    print("Estos son los usuarios a buscar: ")
+        search_usuarios.append(database[indice_aleatorio].fullname)
+    print("Estos son los usuarios a search: ")
     # Imprime el nombre de los usuarios buscados
     for i in range(10):
-        print("\t", buscar_usuarios[i])
+        print("\t", search_usuarios[i])
 
     # Inicia el conteo de tiempo
     inicio = perf_counter()
     for i in range(10):
-        # Buscara a los usuarios guardados en el arreglo buscar_usuarios
-        buscar(tabla_hash,buscar_usuarios[i])
+        # searcha a los usuarios guardados en el arreglo search_usuarios
+        search(tabla_hash,search_usuarios[i])
     # Finaliza el conteo de tiempo
     final = perf_counter()
     # Calcula el tiempo
@@ -128,8 +128,8 @@ def run():
         if len(tabla_hash[i])> 0:
             # Se recorre la lista de usuarios de esa posicion
             for j in range(len(tabla_hash[i])):
-                # Si en la lista se encuentra uno de los nombres del arreglo buscar_usuarios
-                if tabla_hash[i][j][0].fullname in buscar_usuarios:
+                # Si en la lista se encuentra uno de los nombres del arreglo search_usuarios
+                if tabla_hash[i][j][0].fullname in search_usuarios:
                     # Se suma 1 al contador
                     usuarios_encontrados += 1
     # Finaliza el conteo de tiempo
